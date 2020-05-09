@@ -1,12 +1,11 @@
-import {IpError} from 'errors'
-import {ERROR_MESSAGES} from 'constants'
+import { ipError } from 'errors'
+import { ERROR_MESSAGES } from 'messages'
 
-export function validateIp(ip: string): boolean {
+export function validateIp(ip: string): void {
     if (!ip) {
-        throw new IpError(ERROR_MESSAGES.IP_NOT_PROVIDED);
+        throw new ipError(ERROR_MESSAGES.IP_NOT_PROVIDED);
     }
     if (!/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ip)) {
-        throw new IpError(ERROR_MESSAGES.IP_NOT_PROVIDED);
+        throw new ipError(ERROR_MESSAGES.IP_NOT_VALID);
     }
-    return true;
 }

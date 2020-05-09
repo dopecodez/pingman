@@ -13,3 +13,8 @@ export type options = {
     logFilePath?: String
     IPV6?: boolean
 }
+
+export type commandBuilder = {
+    command: String,
+    arguments: String[]
+}
