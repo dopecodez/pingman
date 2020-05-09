@@ -1,0 +1,11 @@
+{
+  "name": "ts-ping",
+  "version": "1.0.0",
+  "description": "A ping wrapper for mode with TypeScript",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Govind S",
+  "license": "ISC"
+}
