@@ -11,9 +11,10 @@ const linux = (ip: string, options?: extendedOptions): commandBuilder => {
    };
    args.push(ip);
    if (!options) {
+      buildCommand.arguments.push('-n', defaultNumberOfEchoes);
       return buildCommand;
    }
-   if (options?.numberOfEchos) {
+   if (typeof options?.numberOfEchos === 'number') {
       args.push('-n', options.numberOfEchos.toString());
    } else {
       args.push('-n', defaultNumberOfEchoes);
@@ -21,7 +22,7 @@ const linux = (ip: string, options?: extendedOptions): commandBuilder => {
    if (options?.soDebugOption) {
       args.push('-d');
    }
-   if (options?.interval) {
+   if (typeof options?.interval === 'number') {
       if (options?.floodPing) {
          args.push('-f');
          emitWarning(ERROR_MESSAGES.FLOOD_AND_INTERVAL_ARGS, 'argumentWarning');
@@ -29,14 +30,22 @@ const linux = (ip: string, options?: extendedOptions): commandBuilder => {
          args.push('-i', options?.interval.toString())
       }
    }
-   if (options?.interfaceAddress) {
+   if (options?.floodPing) {
+      if (typeof options?.interval === 'number') {
+          args.push('-i', options?.interval.toString())
+      } else {
+          args.push('-f');
+          emitWarning(ERROR_MESSAGES.FLOOD_AND_INTERVAL_ARGS, 'argumentWarning');
+      }
+  }
+   if (typeof options?.interfaceAddress === 'string') {
       args.push('-I', options.interfaceAddress);
    }
    if (options?.suppressLoopback) {
       args.push('-L');
    }
-   if (options?.TTL) {
-      args.push('-t', options.TTL.toString()); //TO-DO change to -t for linux
+   if (typeof options?.TTL === 'number') {
+      args.push('-t', options.TTL.toString());
    }
    if (options?.numeric) {
       args.push('-n');
