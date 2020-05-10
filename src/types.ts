@@ -2,7 +2,7 @@ export type options = {
     hostnameResolve?: boolean,
     numberOfEchos?: number,
     bufferSize?: number,
-    doNotFragment: boolean,
+    doNotFragment?: boolean,
     TTL?: number,
     recordRouteHops?: number,
     hopTimestamp?: number,
