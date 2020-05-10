@@ -1,7 +1,8 @@
 import { validateIp } from 'validator'
 import { supportedError } from 'errors'
 import windows from 'windows'
-import unix from 'unix'
+import linux from './linux'
+import mac from './mac'
 import { commandBuilder, options } from '../types'
 import { ERROR_MESSAGES } from '../messages'
 
@@ -13,8 +14,10 @@ function createBuilder(ip: string, platform: string, options?: options): command
     }
     if (platform === platformsSupported[0]) {
         builder = windows(ip, options);
+    } else if(platform === platformsSupported[1]) {
+        builder = mac(ip, options);
     } else {
-        builder = unix();
+        builder = linux(ip, options);
     }
     return builder;
 }
@@ -29,9 +32,7 @@ function isPlatformSupported(platform: string): boolean {
 const platformsSupported = [
     'win32',
     'darwin',
-    'linux',
-    'freebsd',
-    'aix'
+    'linux'
 ]
 
 export default createBuilder;

@@ -1,8 +1,8 @@
-import { commandBuilder, options } from '../types'
+import { commandBuilder, extendedOptions } from '../types'
 import { emitWarning } from 'process'
 import { ERROR_MESSAGES } from '../messages'
 
-const windows = (ip: string, options?: options): commandBuilder => {
+const windows = (ip: string, options?: extendedOptions): commandBuilder => {
     let args: Array<string> = [];
     args.push(ip);
     if (!options) {
@@ -11,7 +11,7 @@ const windows = (ip: string, options?: options): commandBuilder => {
             arguments: args
         }
     } else {
-        if (options?.hostnameResolve) {
+        if (options?.numeric) {
             args.push('-a')
         }
         if(typeof options?.numberOfEchos === 'number') {
@@ -35,7 +35,7 @@ const windows = (ip: string, options?: options): commandBuilder => {
     }
 };
 
-function checkForIpV4SpecificFields(options: options): Array<string> {
+function checkForIpV4SpecificFields(options: extendedOptions): Array<string> {
     let optionsUsed : string = "";
     let args : Array<string> = [];
     if (options?.IPV4) {
@@ -66,7 +66,7 @@ function checkForIpV4SpecificFields(options: options): Array<string> {
     return args;
 }
 
-function checkForIpV6SpecificFields(options:options) : Array<string> {
+function checkForIpV6SpecificFields(options:extendedOptions) : Array<string> {
     let optionsUsed : string = "";
     let args : Array<string> = [];
     if(options?.IPV6){
@@ -75,7 +75,7 @@ function checkForIpV6SpecificFields(options:options) : Array<string> {
             args.push('-S', options.srcAddr);
         }
     } else {
-        if(options.srcAddr){
+        if(typeof options.srcAddr === 'string'){
             optionsUsed.concat(',', options.srcAddr)
         }
         if(optionsUsed.length > 0){
