@@ -12,18 +12,18 @@ function createBuilder(ip: string, platform: string, options?: options): command
         throw new supportedError(ERROR_MESSAGES.PLATFORM_NOT_SUPPORTED.replace('platform', platform));
     }
     if (platform === platformsSupported[0]) {
-        builder = windows
+        builder = windows(ip, options);
     } else {
-        builder = unix
+        builder = unix();
     }
     return builder;
 }
 
 function isPlatformSupported(platform: string): boolean {
-    let supportedPlatform = platformsSupported.find((supportedPlatform) => {
+    let supportedPlatform = platformsSupported.some((supportedPlatform) => {
         return platform === supportedPlatform
     });
-    return supportedPlatform ? true : false;
+    return supportedPlatform;
 }
 
 const platformsSupported = [

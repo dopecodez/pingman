@@ -1,20 +1,21 @@
 export type options = {
-    continious?: Boolean,
-    hostnameResolve?: Boolean,
-    numberOfEchos?: Number,
-    bufferSize?: Number,
-    TTL?: Number,
-    recordRouteHops?: Number,
-    hopTimestamp?: Number,
-    timeout?: Number,
-    srcAddr?: String,
-    numberOfAttempts?: Number,
-    logToFile?: Boolean,
-    logFilePath?: String
-    IPV6?: boolean
+    hostnameResolve?: boolean,
+    numberOfEchos?: number,
+    bufferSize?: number,
+    doNotFragment: boolean,
+    TTL?: number,
+    recordRouteHops?: number,
+    hopTimestamp?: number,
+    timeout?: number,
+    srcAddr?: string,
+    numberOfAttempts?: number,
+    logToFile?: boolean,
+    logFilePath?: string
+    IPV6?: boolean,
+    IPV4?: boolean
 }
 
 export type commandBuilder = {
-    command: String,
-    arguments: String[]
+    command: string,
+    arguments: string[]
 }
