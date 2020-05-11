@@ -1,5 +1,4 @@
 export interface extendedOptions extends options{
-    bufferSize?: number, 
     recordRouteHops?: number,
     hopTimestamp?: number,
     interval?: number,
@@ -10,12 +9,13 @@ export interface extendedOptions extends options{
     pattern?: string,
     quiet?: boolean,
     timeBeforeExit?: number,
-    verboseOutput?: boolean
+    verboseOutput?: boolean,
+    srcAddr?: string
 }
 
 export interface options {
     numeric?: boolean,
-    pingUntilAlive?: boolean,
+    bufferSize?: number,
     logToFile?: boolean,
     logFilePath?: string
     IPV6?: boolean,
@@ -23,11 +23,25 @@ export interface options {
     numberOfEchos?: number,
     doNotFragment?: boolean,
     TTL?: number,
-    srcAddr?: string,
     timeout?: number
 }
 
 export type commandBuilder = {
     command: string,
     arguments: string[]
+}
+
+export type output = {
+    host: string | undefined,
+    numericHost: string | undefined,
+    alive: boolean | undefined,
+    output: string | undefined,
+    time: number | undefined,
+    times: Array<number>,
+    min: number | undefined,
+    max: number | undefined,
+    avg: number | undefined,
+    bufferSize: number | undefined,
+    stddev: string | undefined,
+    packetLoss: string | undefined,
 }

@@ -9,3 +9,16 @@ export function validateIp(ip: string): void {
         throw new ipError(ERROR_MESSAGES.IP_NOT_VALID);
     }
 }
+
+export function isPlatformSupported(platform: string): boolean {
+    let supportedPlatform = platformsSupported.some((supportedPlatform) => {
+        return platform === supportedPlatform
+    });
+    return supportedPlatform;
+}
+
+const platformsSupported = [
+    'win32',
+    'darwin',
+    'linux'
+]

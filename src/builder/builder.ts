@@ -1,4 +1,4 @@
-import { validateIp } from 'validator'
+import { validateIp, isPlatformSupported } from '../helper'
 import { supportedError } from 'errors'
 import windows from 'windows'
 import linux from './linux'
@@ -12,28 +12,15 @@ function createBuilder(ip: string, platform: string, options?: options): command
     if (isPlatformSupported(platform)) {
         throw new supportedError(ERROR_MESSAGES.PLATFORM_NOT_SUPPORTED.replace('platform', platform));
     }
-    if (platform === platformsSupported[0]) {
+    if (platform === 'win32') {
         builder = windows(ip, options);
-    } else if(platform === platformsSupported[1]) {
+    } else if (platform === 'darwin') {
         builder = mac(ip, options);
     } else {
         builder = linux(ip, options);
     }
     return builder;
 }
-
-function isPlatformSupported(platform: string): boolean {
-    let supportedPlatform = platformsSupported.some((supportedPlatform) => {
-        return platform === supportedPlatform
-    });
-    return supportedPlatform;
-}
-
-const platformsSupported = [
-    'win32',
-    'darwin',
-    'linux'
-]
 
 export default createBuilder;
 
