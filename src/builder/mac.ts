@@ -11,13 +11,13 @@ const mac = (ip: string, options?: extendedOptions): commandBuilder => {
     };
     args.push(ip);
     if (!options) {
-        buildCommand.arguments.push('-n', defaultNumberOfEchoes);
+        buildCommand.arguments.push('-c', defaultNumberOfEchoes);
         return buildCommand;
     }
     if (typeof options?.numberOfEchos === 'number') {
-        args.push('-n', options.numberOfEchos.toString());
+        args.push('-c', options.numberOfEchos.toString());
     } else {
-        args.push('-n', defaultNumberOfEchoes);
+        args.push('-c', defaultNumberOfEchoes);
     }
     if (options?.soDebugOption) {
         args.push('-d');

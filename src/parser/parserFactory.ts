@@ -6,8 +6,8 @@ import { options, output } from '../types'
 import { ERROR_MESSAGES } from '../messages'
 import parser from "./parser.interface";
 
-function createParser(platform: string, output?: string[], options?: options): any {
-    let parser: any;
+function parserFactory(platform: string, output?: string[], options?: options) : output {
+    let parser: parser;
     if (isPlatformSupported(platform)) {
         throw new supportedError(ERROR_MESSAGES.PLATFORM_NOT_SUPPORTED.replace('platform', platform));
     }
@@ -18,11 +18,11 @@ function createParser(platform: string, output?: string[], options?: options): a
     } else {
         parser = new unix(options);
     }
-    parseOutput(parser, output);
-    return parser;
+    let result = parseOutput(parser, output);
+    return result;
 }
 
-function parseOutput(parser: parser, output?: string[]) {
+function parseOutput(parser: parser, output?: string[]) : output {
     let lines = output?.join('').split('\n');
     let state = 0;
     let parsedOutput: output = defaultResponse;
@@ -54,7 +54,7 @@ function checkIfBodyEnded(line: string): boolean {
     return false;
 }
 
-function createResult(result: output, lines?: Array<string>) {
+function createResult(result: output, lines?: Array<string>) : output{
     // Concat output
     result.output = lines?.join('\n');
 
@@ -109,4 +109,4 @@ const states = {
     END: 3,
 };
 
-export default createParser;
+export default parserFactory;
