@@ -1,4 +1,4 @@
-import { extendedOptions, commandBuilder, output } from 'types'
+import { options, extendedOptions, commandBuilder, output } from 'types'
 import createBuilder from 'builder/builder'
 import * as os from 'os'
 import Logger from './log'

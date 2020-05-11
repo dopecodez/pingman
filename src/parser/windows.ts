@@ -44,7 +44,7 @@ class windows implements parser {
         let isIPV6 = this.config?.IPV6;
         let words = line.split(' ');
         let dataFields = words.filter((word) => {
-            var isDataField = word.indexOf('=') >= 0 || word.indexOf('<') >= 0;
+            let isDataField = word.indexOf('=') >= 0 || word.indexOf('<') >= 0;
             return isDataField;
         });
         if (isIPV6) {
@@ -105,7 +105,7 @@ class windows implements parser {
             let timeField = dataFields.find((dataField) => {
                 return dataField.search(/(ms|мс)/i) >= 0;
             });
-            var regExp = /([0-9.]+)/;
+            const regExp = /([0-9.]+)/;
             if (timeField) {
                 let match = regExp.exec(timeField);
                 match ? this.response?.times?.push(parseFloat(match[1])) : null;

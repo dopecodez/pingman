@@ -1,12 +1,13 @@
 import { isPlatformSupported } from '../helper'
 import { supportedError } from 'errors'
 import windows from 'windows'
-import unix from './unix'
+import mac from './mac'
+import linux from './linux'
 import { options, output } from '../types'
 import { ERROR_MESSAGES } from '../messages'
 import parser from "./parser.interface";
 
-function parserFactory(platform: string, output?: string[], options?: options) : output {
+function parserFactory(platform: string, output?: string[], options?: options): output {
     let parser: parser;
     if (isPlatformSupported(platform)) {
         throw new supportedError(ERROR_MESSAGES.PLATFORM_NOT_SUPPORTED.replace('platform', platform));
@@ -14,15 +15,15 @@ function parserFactory(platform: string, output?: string[], options?: options) :
     if (platform === 'win32') {
         parser = new windows(defaultResponse, options);
     } else if (platform === 'darwin') {
-        parser = new unix(options);
+        parser = new mac(defaultResponse, options);
     } else {
-        parser = new unix(options);
+        parser = new linux(defaultResponse, options);
     }
     let result = parseOutput(parser, output);
     return result;
 }
 
-function parseOutput(parser: parser, output?: string[]) : output {
+function parseOutput(parser: parser, output?: string[]): output {
     let lines = output?.join('').split('\n');
     let state = 0;
     let parsedOutput: output = defaultResponse;
@@ -34,7 +35,7 @@ function parseOutput(parser: parser, output?: string[]) : output {
             parser.processHeader(line);
             state = states.BODY
         } else if (state === states.BODY) {
-            (!checkIfBodyEnded(line)) ? parser.processBody(line) : state = states.FOOTER
+            (!checkIfBodyEnded(line, true)) ? parser.processBody(line) : state = states.FOOTER
         } else if (state === states.FOOTER) {
             parsedOutput = parser.processFooter(line);
             state = states.END
@@ -46,15 +47,22 @@ function parseOutput(parser: parser, output?: string[]) : output {
     return result;
 }
 
-function checkIfBodyEnded(line: string): boolean {
-    let isPingSummaryLineShown = line.slice(-1) === ':';
-    if (isPingSummaryLineShown) {
-        return true;
+function checkIfBodyEnded(line: string, windows: true): boolean {
+    if (windows) {
+        let isPingSummaryLineShown = line.slice(-1) === ':';
+        if (isPingSummaryLineShown) {
+            return true;
+        }
+    } else {
+        // Change state if it see a '---'
+        if (line.indexOf('---') >= 0) {
+            return true
+        }
     }
     return false;
 }
 
-function createResult(result: output, lines?: Array<string>) : output{
+function createResult(result: output, lines?: Array<string>): output {
     // Concat output
     result.output = lines?.join('\n');
 
@@ -76,7 +84,7 @@ function createResult(result: output, lines?: Array<string>) : output{
 
     // Fix min, avg, max, stddev up to 3 decimal points
     ['min', 'avg', 'max', 'stddev', 'packetLoss'].forEach((key) => {
-        var v = (result as any)[key];
+        let v = (result as any)[key];
         if (typeof v === 'number') {
             (result as any)[key] = v.toFixed(3);
         }
