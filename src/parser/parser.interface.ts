@@ -1,10 +1,10 @@
-import { options, output } from "../types";
+import { extendedPingOptions, pingResponse } from "../types";
 
 interface parser {
-    config?: options
+    config?: extendedPingOptions
     processHeader(line: string): void
     processBody(line: string): void
-    processFooter(line: string): output
+    processFooter(line: string): pingResponse
 }
 
 export default parser

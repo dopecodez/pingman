@@ -1,7 +1,7 @@
 import { commandBuilder } from "./types"
 import { spawn, ChildProcess } from 'child_process'
-import { pingError, spawnError } from 'errors'
-import { ERROR_MESSAGES } from 'messages'
+import { pingError, spawnError } from './errors'
+import { ERROR_MESSAGES } from './messages'
 
 const execute = async (builtCommand: commandBuilder): Promise<any> => {
     let ping: ChildProcess;

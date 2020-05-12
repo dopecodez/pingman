@@ -1,4 +1,4 @@
-export interface extendedOptions extends options{
+export interface extendedPingOptions extends pingOptions{
     recordRouteHops?: number,
     hopTimestamp?: number,
     interval?: number,
@@ -13,7 +13,7 @@ export interface extendedOptions extends options{
     srcAddr?: string
 }
 
-export interface options {
+export interface pingOptions {
     numeric?: boolean,
     bufferSize?: number,
     logToFile?: boolean,
@@ -31,7 +31,7 @@ export type commandBuilder = {
     arguments: string[]
 }
 
-export type output = {
+export type pingResponse = {
     host: string | undefined,
     numericHost: string | undefined,
     alive: boolean | undefined,

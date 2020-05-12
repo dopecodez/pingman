@@ -1,8 +1,8 @@
 import mac from "./mac";
-import { output, options } from "../types";
+import { pingResponse, extendedPingOptions } from "../types";
 
 class linux extends mac {
-    constructor(response: output, options?: options) {
+    constructor(response: pingResponse, options?: extendedPingOptions) {
         super(response, options);
     }
 

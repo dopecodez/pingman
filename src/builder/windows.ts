@@ -1,8 +1,8 @@
-import { commandBuilder, extendedOptions } from '../types'
+import { commandBuilder, extendedPingOptions } from '../types'
 import { emitWarning } from 'process'
 import { ERROR_MESSAGES } from '../messages'
 
-const windows = (ip: string, options?: extendedOptions): commandBuilder => {
+const windows = (ip: string, options?: extendedPingOptions): commandBuilder => {
     let args: Array<string> = [];
     args.push(ip);
     if (!options) {
@@ -35,7 +35,7 @@ const windows = (ip: string, options?: extendedOptions): commandBuilder => {
     }
 };
 
-function checkForIpV4SpecificFields(options: extendedOptions): Array<string> {
+function checkForIpV4SpecificFields(options: extendedPingOptions): Array<string> {
     let optionsUsed : string = "";
     let args : Array<string> = [];
     if (options?.IPV4) {
@@ -66,7 +66,7 @@ function checkForIpV4SpecificFields(options: extendedOptions): Array<string> {
     return args;
 }
 
-function checkForIpV6SpecificFields(options:extendedOptions) : Array<string> {
+function checkForIpV6SpecificFields(options:extendedPingOptions) : Array<string> {
     let optionsUsed : string = "";
     let args : Array<string> = [];
     if(options?.IPV6){

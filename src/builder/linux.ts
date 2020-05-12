@@ -1,8 +1,8 @@
-import { commandBuilder, extendedOptions } from '../types'
+import { commandBuilder, extendedPingOptions } from '../types'
 import { ERROR_MESSAGES } from '../messages';
 import { emitWarning } from 'process';
 
-const linux = (ip: string, options?: extendedOptions): commandBuilder => {
+const linux = (ip: string, options?: extendedPingOptions): commandBuilder => {
    let defaultNumberOfEchoes = '4';
    let args: Array<string> = [];
    let buildCommand: commandBuilder = {

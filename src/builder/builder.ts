@@ -1,12 +1,12 @@
 import { validateIp, isPlatformSupported } from '../helper'
-import { supportedError } from 'errors'
-import windows from 'windows'
+import { supportedError } from '../errors'
+import windows from './windows'
 import linux from './linux'
 import mac from './mac'
-import { commandBuilder, options } from '../types'
+import { commandBuilder, extendedPingOptions } from '../types'
 import { ERROR_MESSAGES } from '../messages'
 
-function createBuilder(ip: string, platform: string, options?: options): commandBuilder {
+function createBuilder(ip: string, platform: string, options?: extendedPingOptions): commandBuilder {
     let builder: commandBuilder;
     validateIp(ip);
     if (isPlatformSupported(platform)) {

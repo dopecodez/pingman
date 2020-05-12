@@ -1,5 +1,5 @@
-import { ipError } from 'errors'
-import { ERROR_MESSAGES } from 'messages'
+import { ipError } from './errors'
+import { ERROR_MESSAGES } from './messages'
 
 export function validateIp(ip: string): void {
     if (!ip) {

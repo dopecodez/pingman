@@ -1,11 +1,11 @@
-import { options, output } from "../types";
+import { extendedPingOptions, pingResponse } from "../types";
 import parser from "./parser.interface";
 
 class windows implements parser {
-    config: options | undefined;
-    response: output
+    config: extendedPingOptions | undefined;
+    response: pingResponse
 
-    constructor(response: output, options?: options) {
+    constructor(response: pingResponse, options?: extendedPingOptions) {
         this.config = options
         this.response = response
     }
@@ -54,7 +54,7 @@ class windows implements parser {
         }
     }
 
-    processFooter(line: string): output {
+    processFooter(line: string): pingResponse {
         let packetLoss = line.match(/([\d.]+)%/);
         if (packetLoss) {
             this.response.packetLoss = packetLoss[1];

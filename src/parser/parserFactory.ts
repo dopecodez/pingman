@@ -1,13 +1,13 @@
 import { isPlatformSupported } from '../helper'
-import { supportedError } from 'errors'
-import windows from 'windows'
+import { supportedError } from '../errors'
+import windows from './windows'
 import mac from './mac'
 import linux from './linux'
-import { options, output } from '../types'
+import { extendedPingOptions, pingResponse } from '../types'
 import { ERROR_MESSAGES } from '../messages'
 import parser from "./parser.interface";
 
-function parserFactory(platform: string, output?: string[], options?: options): output {
+function parserFactory(platform: string, output?: string[], options?: extendedPingOptions): pingResponse {
     let parser: parser;
     if (isPlatformSupported(platform)) {
         throw new supportedError(ERROR_MESSAGES.PLATFORM_NOT_SUPPORTED.replace('platform', platform));
@@ -23,10 +23,10 @@ function parserFactory(platform: string, output?: string[], options?: options): 
     return result;
 }
 
-function parseOutput(parser: parser, output?: string[]): output {
+function parseOutput(parser: parser, output?: string[]): pingResponse {
     let lines = output?.join('').split('\n');
     let state = 0;
-    let parsedOutput: output = defaultResponse;
+    let parsedOutput: pingResponse = defaultResponse;
     lines?.forEach((line) => {
         line = line.replace(stripRegex, '');
         if (line.length === 0) {
@@ -62,7 +62,7 @@ function checkIfBodyEnded(line: string, windows: true): boolean {
     return false;
 }
 
-function createResult(result: output, lines?: Array<string>): output {
+function createResult(result: pingResponse, lines?: Array<string>): pingResponse {
     // Concat output
     result.output = lines?.join('\n');
 
@@ -77,8 +77,8 @@ function createResult(result: output, lines?: Array<string>): output {
     // Get stddev
     if (result.stddev === undefined && result.alive) {
         let N = result.times.length;
-        const mean = result.times.reduce((a, b) => a + b) / N;
-        const stddev = Math.sqrt(result.times.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / N);
+        const mean = result.times.reduce((a: number, b: number) => a + b) / N;
+        const stddev = Math.sqrt(result.times.map(x => Math.pow(x - mean, 2)).reduce((a: number, b: number) => a + b) / N);
         result.stddev = stddev.toString();
     }
 
@@ -93,7 +93,7 @@ function createResult(result: output, lines?: Array<string>): output {
     return result;
 }
 
-const defaultResponse: output = {
+const defaultResponse: pingResponse = {
     host: undefined,
     numericHost: undefined,
     alive: false,
