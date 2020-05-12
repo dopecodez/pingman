@@ -3,20 +3,38 @@
   "version": "1.0.0",
   "description": "A ping wrapper for mode with TypeScript",
   "main": "./dist/source",
-	"engines": {
-		"node": ">=10"
-	},
+  "engines": {
+    "node": ">=10"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "test": "ava",
+    "build": "del-cli dist && tsc"
   },
   "author": "Govind S",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^13.13.5"
+    "@types/node": "^13.13.5",
+    "ava": "^3.8.2",
+    "typescript": "^3.8.3"
   },
   "files": [
-		"./dist/source"
-	],
-  "types": "./dist/src"
+    "./dist/source",
+    "./dist/test"
+  ],
+  "types": "./dist/src/types.d.ts",
+  "ava": {
+    "files": [
+      "test/*"
+    ],
+    "timeout": "1m",
+    "typescript": {
+      "rewritePaths": {
+        "test/": "dist/test/"
+      }
+    }
+  },
+  "dependencies": {
+    "@ava/typescript": "^1.1.1",
+    "fs": "0.0.1-security"
+  }
 }

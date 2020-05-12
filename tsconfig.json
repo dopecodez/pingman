@@ -10,10 +10,12 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "allowSyntheticDefaultImports": true,
+        "module": "commonjs",
         "moduleResolution": "node",
-		"resolveJsonModule": true
+        "resolveJsonModule": true
     },
     "include": [
-		"src"
+        "src",
+        "test"
 	]
 }
