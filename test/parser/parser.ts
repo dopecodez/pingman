@@ -27,3 +27,29 @@ test('ouput for windows IPV4 ping', async t => {
     let output = parserFactory("win32", input);
     t.deepEqual(output as any, response.windows_ipv4);
 })
+
+test('ouput for windows IPV6 ping', async t => {
+    let input = await processLineByLine(__dirname + '/samples/windowsIPV6.txt');
+    let output = parserFactory("win32", input, {IPV6:true});
+    t.deepEqual(output as any, response.windows_ipv6);
+})
+
+test('ouput for linux IPV4 ping', async t => {
+    let input = await processLineByLine(__dirname + '/samples/linuxIPV4.txt');
+    let output = parserFactory("linux", input);
+    t.deepEqual(output as any, response.linux_ipv4);
+})
+
+test('ouput for linux IPV6 ping', async t => {
+    let input = await processLineByLine(__dirname + '/samples/linuxIPV6.txt');
+    let output = parserFactory("linux", input, {IPV6:true});
+    t.deepEqual(output as any, response.linux_ipv6);
+})
+
+test('ouput for mac IPV4 ping', async t => {
+    let input = await processLineByLine(__dirname + '/samples/macIPV4.txt');
+    let output = parserFactory("darwin", input);
+    t.deepEqual(output as any, response.macos_ipv4);
+})
+
+//TO-DO - Add a mac ipv6 test

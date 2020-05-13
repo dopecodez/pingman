@@ -7,6 +7,7 @@ class mac implements parser {
     constructor(response: pingResponse, options?: extendedPingOptions) {
         this.config = options
         this.response = response
+        this.response.times = []
     }
 
     processHeader(line: string): void {

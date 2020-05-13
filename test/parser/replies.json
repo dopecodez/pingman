@@ -33,9 +33,9 @@
         "min": "4.269",
         "max": "5.371",
         "avg": "4.960",
-        "bufferSize": 56,
+        "bufferSize": 32,
         "stddev": "0.424",
-        "packetLoss": "0.000"
+        "packetLoss": "0.0"
     },
     "linux_ipv4": {
         "host": "localhost",
@@ -52,9 +52,9 @@
         "min": "0.022",
         "max": "0.030",
         "avg": "0.027",
-        "bufferSize": 56,
+        "bufferSize": 32,
         "stddev": "0.003",
-        "packetLoss": "0.000"
+        "packetLoss": "0"
     },
     "linux_ipv6": {
         "host": "2606:4700:4700::1111",
@@ -69,22 +69,27 @@
         "min": "0.672",
         "max": "1.009",
         "avg": "0.840",
-        "bufferSize": 56,
+        "bufferSize": 32,
         "stddev": "0.170",
-        "packetLoss": "0.000"
+        "packetLoss": "0"
     },
     "windows_ipv6": {
         "host": "fe80::2940:90ec:a964:4b42%7",
         "numericHost": "fe80::2940:90ec:a964:4b42%7",
         "alive": true,
-        "output": "Pinging fe80::2940:90ec:a964:4b42%7 with 32 bytes of data:\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\n\nPing statistics for fe80::2940:90ec:a964:4b42%7:\n   Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),\n   Approximate round trip times in milli-seconds:\n      Minimum = 0ms, Maximum = 0ms, Average = 0ms\n",
-        "time": "undefined",
-        "times": [],
-        "min": "0",
-        "max": "0",
-        "avg": "0",
+        "output": "Pinging fe80::2940:90ec:a964:4b42%7 with 32 bytes of data:\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\n\nPing statistics for fe80::2940:90ec:a964:4b42%7:\n    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),\nApproximate round trip times in milli-seconds:\n    Minimum = 0ms, Maximum = 0ms, Average = 0ms\n",
+        "time": 1,
+        "times": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "min": "0.000",
+        "max": "0.000",
+        "avg": "0.000",
         "bufferSize": 32,
-        "stddev": "0",
-        "packetLoss": "0.000"
+        "stddev": "5.717",
+        "packetLoss": "0"
     }
 }

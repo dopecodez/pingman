@@ -41,7 +41,7 @@ function parseOutput(parser: parser, isWindows: boolean, output?: string[]): pin
         } else if (state === states.BODY) {
             (!checkIfBodyEnded(line, isWindows)) ? parser.processBody(line) : state = states.FOOTER
         } else if (state === states.FOOTER) {
-             parsedOutput = parser.processFooter(line)
+            parsedOutput = parser.processFooter(line)
         }
     });
     let result = createResult(parsedOutput, lines);
