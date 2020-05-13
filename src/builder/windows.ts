@@ -6,6 +6,7 @@ const windows = (ip: string, options?: extendedPingOptions): commandBuilder => {
     let args: Array<string> = [];
     const windowsRootPath = process.env.SystemRoot + '/system32/ping.exe';
     args.push(ip);
+    //NO Allowing Unsanitized user input into spawn.Checking each param and assigning
     if (!options) {
         return {
             command: windowsRootPath,
@@ -36,6 +37,7 @@ const windows = (ip: string, options?: extendedPingOptions): commandBuilder => {
     }
 };
 
+//Checking for windows IPV4 fields as per official documentation
 function checkForIpV4SpecificFields(options: extendedPingOptions): Array<string> {
     let optionsUsed: string = "";
     let args: Array<string> = [];
@@ -67,6 +69,7 @@ function checkForIpV4SpecificFields(options: extendedPingOptions): Array<string>
     return args;
 }
 
+//Checking for windows IPV6 fields as per official documentation
 function checkForIpV6SpecificFields(options: extendedPingOptions): Array<string> {
     let optionsUsed: string = "";
     let args: Array<string> = [];

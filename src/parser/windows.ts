@@ -47,6 +47,7 @@ class windows implements parser {
             let isDataField = word.indexOf('=') >= 0 || word.indexOf('<') >= 0;
             return isDataField;
         });
+        //if IPV6, body does not have as many fields as IPV4 based on testing
         if (isIPV6) {
             this.processIPV6Body(dataFields);
         } else {
@@ -68,13 +69,14 @@ class windows implements parser {
             let m2 = regExp.exec(line);
             let m3 = regExp.exec(line);
 
-            m1? this.response.min = parseFloat(m1[1]):null;
-            m2? this.response.max = parseFloat(m2[1]): null;
-            m3? this.response.avg = parseFloat(m3[1]): null;
+            m1 ? this.response.min = parseFloat(m1[1]) : null;
+            m2 ? this.response.max = parseFloat(m2[1]) : null;
+            m3 ? this.response.avg = parseFloat(m3[1]) : null;
         }
         return this.response;
     }
 
+    //method to process IPV4 Specific Body
     processIPV4Body(dataFields: string[]): void {
         const expectDataFieldInReplyLine = 3;
         let isReplyLine = dataFields.length >= expectDataFieldInReplyLine;
@@ -98,6 +100,7 @@ class windows implements parser {
         }
     }
 
+    //method to process IPV Specific Body
     processIPV6Body(dataFields: string[]): void {
         let expectDataFieldInReplyLine = 1;
         if (dataFields.length >= expectDataFieldInReplyLine) {

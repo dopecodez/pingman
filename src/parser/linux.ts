@@ -1,6 +1,7 @@
 import mac from "./mac";
 import { pingResponse, extendedPingOptions } from "../types";
 
+//extends mac as body and footer identical for mac and linux.Can use mac functions
 class linux extends mac {
     constructor(response: pingResponse, options?: extendedPingOptions) {
         super(response, options);

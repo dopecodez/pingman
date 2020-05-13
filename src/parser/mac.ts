@@ -46,7 +46,7 @@ class mac implements parser {
             m1 ? this.response.min = parseFloat(m1[1]) : null;
             m2 ? this.response.avg = parseFloat(m2[1]) : null;
             m3 ? this.response.max = parseFloat(m3[1]) : null;
-            m4 ? this.response.stddev = m4[1] : null;
+            m4 ? this.response.stddev = parseFloat(m4[1]) : null;
         }
         return this.response;
     }

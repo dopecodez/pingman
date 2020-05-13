@@ -7,23 +7,27 @@ import { extendedPingOptions, pingResponse } from '../types'
 import { ERROR_MESSAGES } from '../messages'
 import parser from "./parser.interface";
 
+//create instance of parser based on operating system
 function parserFactory(platform: string, output?: string[], options?: extendedPingOptions): pingResponse {
     let parser: parser;
-    if (isPlatformSupported(platform)) {
+    let isWindows: boolean = false;
+    if (!isPlatformSupported(platform)) {
         throw new supportedError(ERROR_MESSAGES.PLATFORM_NOT_SUPPORTED.replace('platform', platform));
     }
     if (platform === 'win32') {
         parser = new windows(defaultResponse, options);
+        isWindows = true;
     } else if (platform === 'darwin') {
         parser = new mac(defaultResponse, options);
     } else {
         parser = new linux(defaultResponse, options);
     }
-    let result = parseOutput(parser, output);
+    let result = parseOutput(parser, isWindows, output);
     return result;
 }
 
-function parseOutput(parser: parser, output?: string[]): pingResponse {
+//parsing output line by line
+function parseOutput(parser: parser, isWindows: boolean, output?: string[]): pingResponse {
     let lines = output?.join('').split('\n');
     let state = 0;
     let parsedOutput: pingResponse = defaultResponse;
@@ -35,19 +39,17 @@ function parseOutput(parser: parser, output?: string[]): pingResponse {
             parser.processHeader(line);
             state = states.BODY
         } else if (state === states.BODY) {
-            (!checkIfBodyEnded(line, true)) ? parser.processBody(line) : state = states.FOOTER
+            (!checkIfBodyEnded(line, isWindows)) ? parser.processBody(line) : state = states.FOOTER
         } else if (state === states.FOOTER) {
-            parsedOutput = parser.processFooter(line);
-            state = states.END
-        } else if (state === states.END) {
-            //do - nothing
+             parsedOutput = parser.processFooter(line)
         }
-    })
+    });
     let result = createResult(parsedOutput, lines);
     return result;
 }
 
-function checkIfBodyEnded(line: string, windows: true): boolean {
+//function to check if body ended and footer began
+function checkIfBodyEnded(line: string, windows: boolean): boolean {
     if (windows) {
         let isPingSummaryLineShown = line.slice(-1) === ':';
         if (isPingSummaryLineShown) {
@@ -62,6 +64,7 @@ function checkIfBodyEnded(line: string, windows: true): boolean {
     return false;
 }
 
+//Function to calculate and create the result
 function createResult(result: pingResponse, lines?: Array<string>): pingResponse {
     // Concat output
     result.output = lines?.join('\n');
@@ -79,7 +82,7 @@ function createResult(result: pingResponse, lines?: Array<string>): pingResponse
         let N = result.times.length;
         const mean = result.times.reduce((a: number, b: number) => a + b) / N;
         const stddev = Math.sqrt(result.times.map(x => Math.pow(x - mean, 2)).reduce((a: number, b: number) => a + b) / N);
-        result.stddev = stddev.toString();
+        result.stddev = stddev;
     }
 
     // Fix min, avg, max, stddev up to 3 decimal points
@@ -93,6 +96,7 @@ function createResult(result: pingResponse, lines?: Array<string>): pingResponse
     return result;
 }
 
+//Default response object
 const defaultResponse: pingResponse = {
     host: undefined,
     numericHost: undefined,
@@ -108,13 +112,14 @@ const defaultResponse: pingResponse = {
     bufferSize: undefined
 };
 
+//to strip space present at end of string
 const stripRegex: RegExp = /[ ]*\r?\n?$/g;
 
+//States of parsing - local use only
 const states = {
     HEADER: 0,
     BODY: 1,
-    FOOTER: 2,
-    END: 3,
+    FOOTER: 2
 };
 
 export default parserFactory;

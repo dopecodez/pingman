@@ -42,6 +42,6 @@ export type pingResponse = {
     max: number | undefined,
     avg: number | undefined,
     bufferSize: number | undefined,
-    stddev: string | undefined,
+    stddev: number | undefined,
     packetLoss: string | undefined,
 }

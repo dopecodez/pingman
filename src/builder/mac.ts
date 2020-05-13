@@ -3,13 +3,14 @@ import { emitWarning } from 'process'
 import { ERROR_MESSAGES } from '../messages'
 
 const mac = (ip: string, options?: extendedPingOptions): commandBuilder => {
-    let defaultNumberOfEchoes = '4';
+    let defaultNumberOfEchoes = '4'; //default needed because mac by default has continous ping till we cancel
     let args: Array<string> = [];
     let buildCommand: commandBuilder = {
         command: '/sbin/ping',
         arguments: args
     };
     args.push(ip);
+    //NO Allowing Unsanitized user input into spawn.Checking each param and assigning
     if (!options) {
         buildCommand.arguments.push('-c', defaultNumberOfEchoes);
         return buildCommand;
@@ -45,7 +46,7 @@ const mac = (ip: string, options?: extendedPingOptions): commandBuilder => {
         args.push('-L');
     }
     if (typeof options?.TTL === 'number') {
-        args.push('-m', options.TTL.toString()); //TO-DO change to -t for linux
+        args.push('-m', options.TTL.toString()); //change to -t for linux
     }
     if (options?.numeric) {
         args.push('-n');

@@ -1,0 +1,10 @@
+Pinging fe80::2940:90ec:a964:4b42%7 with 32 bytes of data:
+Reply from fe80::2940:90ec:a964:4b42%7: time<1ms
+Reply from fe80::2940:90ec:a964:4b42%7: time<1ms
+Reply from fe80::2940:90ec:a964:4b42%7: time<1ms
+Reply from fe80::2940:90ec:a964:4b42%7: time<1ms
+
+Ping statistics for fe80::2940:90ec:a964:4b42%7:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms

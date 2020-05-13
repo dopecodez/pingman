@@ -10,6 +10,7 @@ const linux = (ip: string, options?: extendedPingOptions): commandBuilder => {
       arguments: args
    };
    args.push(ip);
+   //NO Allowing Unsanitized user input into spawn.Checking each param and assigning
    if (!options) {
       buildCommand.arguments.push('-c', defaultNumberOfEchoes);
       return buildCommand;
