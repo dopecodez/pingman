@@ -2,7 +2,6 @@ import test from 'ava'
 import execute from '../src/ping'
 import os from 'os'
 import * as replies from './replies.json';
-// import { pingError } from '../src/errors';
 
 const platform = os.platform();
 let command: { command: string; arguments: string[] };

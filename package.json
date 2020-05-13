@@ -24,7 +24,8 @@
   "types": "./dist/src/types.d.ts",
   "ava": {
     "files": [
-      "test/*"
+      "test/*",
+      "test/builder/*"
     ],
     "timeout": "1m",
     "typescript": {

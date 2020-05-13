@@ -13,14 +13,14 @@ const execute = async (builtCommand: commandBuilder): Promise<any> => {
             reject(new spawnError(ERROR_MESSAGES.SPAWN_ERROR.replace('args', builtCommand.arguments.toString())));
             return;
         }
-        ping?.once("error", () => {
+        ping.once("error", () => {
             reject(new pingError(ERROR_MESSAGES.GENERAL_PING_ERROR));
             return;
         });
-        ping?.stdout?.on('data', (data) => {
+        ping.stdout?.on('data', (data) => {
             output.push(String(data));
         });
-        ping?.on("close", () => {
+        ping.on("close", () => {
             resolve(output);
             return;
         })

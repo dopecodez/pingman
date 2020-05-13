@@ -11,13 +11,13 @@ const linux = (ip: string, options?: extendedPingOptions): commandBuilder => {
    };
    args.push(ip);
    if (!options) {
-      buildCommand.arguments.push('-n', defaultNumberOfEchoes);
+      buildCommand.arguments.push('-c', defaultNumberOfEchoes);
       return buildCommand;
    }
    if (typeof options?.numberOfEchos === 'number') {
-      args.push('-n', options.numberOfEchos.toString());
+      args.push('-c', options.numberOfEchos.toString());
    } else {
-      args.push('-n', defaultNumberOfEchoes);
+      args.push('-c', defaultNumberOfEchoes);
    }
    if (options?.soDebugOption) {
       args.push('-d');
@@ -25,19 +25,19 @@ const linux = (ip: string, options?: extendedPingOptions): commandBuilder => {
    if (typeof options?.interval === 'number') {
       if (options?.floodPing) {
          args.push('-f');
-         emitWarning(ERROR_MESSAGES.FLOOD_AND_INTERVAL_ARGS, 'argumentWarning');
+         emitWarning(ERROR_MESSAGES.FLOOD_AND_INTERVAL_ARGS, 'argumentWarning');//Catch the warning and process it
       } else {
          args.push('-i', options?.interval.toString())
       }
    }
    if (options?.floodPing) {
       if (typeof options?.interval === 'number') {
-          args.push('-i', options?.interval.toString())
+         args.push('-i', options?.interval.toString())
       } else {
-          args.push('-f');
-          emitWarning(ERROR_MESSAGES.FLOOD_AND_INTERVAL_ARGS, 'argumentWarning');
+         args.push('-f');
+         emitWarning(ERROR_MESSAGES.FLOOD_AND_INTERVAL_ARGS, 'argumentWarning');
       }
-  }
+   }
    if (typeof options?.interfaceAddress === 'string') {
       args.push('-I', options.interfaceAddress);
    }

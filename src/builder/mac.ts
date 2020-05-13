@@ -69,7 +69,7 @@ const mac = (ip: string, options?: extendedPingOptions): commandBuilder => {
         args.push('-v')
     }
     if (typeof options?.timeout === 'number') {
-        args.push('-w', options.timeout.toString())
+        args.push('-W', (options.timeout * 1000).toString())
     }
     if (options?.IPV6) {
         buildCommand.command = '/sbin/ping6'
