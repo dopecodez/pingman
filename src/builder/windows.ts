@@ -7,7 +7,7 @@ const windows = (ip: string, options?: extendedPingOptions): commandBuilder => {
     args.push(ip);
     if (!options) {
         return {
-            command: 'ping',
+            command: process.env.SystemRoot + '/system32/ping.exe',
             arguments: args
         }
     } else {

@@ -6,7 +6,7 @@ const mac = (ip: string, options?: extendedPingOptions): commandBuilder => {
     let defaultNumberOfEchoes = '4';
     let args: Array<string> = [];
     let buildCommand: commandBuilder = {
-        command: 'ping',
+        command: '/sbin/ping',
         arguments: args
     };
     args.push(ip);
@@ -72,7 +72,7 @@ const mac = (ip: string, options?: extendedPingOptions): commandBuilder => {
         args.push('-w', options.timeout.toString())
     }
     if (options?.IPV6) {
-        buildCommand.command = 'ping6'
+        buildCommand.command = '/sbin/ping6'
     }
     buildCommand.arguments = args;
     return buildCommand;

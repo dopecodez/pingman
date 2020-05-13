@@ -12,7 +12,8 @@
         "allowSyntheticDefaultImports": true,
         "module": "commonjs",
         "moduleResolution": "node",
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
     },
     "include": [
         "src",
