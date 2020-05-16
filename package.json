@@ -1,14 +1,17 @@
 {
-  "name": "ts-ping",
+  "name": "pingman",
   "version": "1.0.0",
   "description": "A ping wrapper for mode with TypeScript",
-  "main": "./dist/source",
+  "main": "dist/src",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
+    "prepublishOnly": "tsc --build --clean && tsc",
+    "publish": "npm run publish",
     "test": "ava",
-    "build": "del-cli dist && tsc",
+    "prebuild": "tsc --build --clean",
+    "build": "tsc",
     "postbuild": "copyfiles -u 1 test/parser/samples/*.txt dist/test"
   },
   "author": "Govind S",
@@ -21,10 +24,10 @@
     "copyfiles": "^2.2.0"
   },
   "files": [
-    "./dist/source",
-    "./dist/test"
+    "dist/source",
+    "dist/test"
   ],
-  "types": "./dist/src/types.d.ts",
+  "types": "dist/src/",
   "ava": {
     "files": [
       "test/*",
@@ -38,6 +41,5 @@
       }
     }
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

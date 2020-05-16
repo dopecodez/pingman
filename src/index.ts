@@ -24,6 +24,7 @@ const ping = async (ipAddress: string, pingOptions?: extendedPingOptions) => {
     }
 }
 
+export default ping;
 // For CommonJS default export support
 module.exports = ping;
 module.exports.default = ping;
@@ -34,5 +35,3 @@ export {
     pingOptions, 
     pingResponse
 } from './types';
-
-export default ping;
