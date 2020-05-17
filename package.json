@@ -16,7 +16,12 @@
     "prepare": "npm run build"
   },
   "author": "Govind S",
-  "license": "ISC",
+  "license": "MIT",
+  "homepage": "https://github.com/dopecodez/pingman",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dopecodez/pingman.git"
+  },
   "devDependencies": {
     "@types/node": "^13.13.5",
     "ava": "^3.8.2",
@@ -42,5 +47,11 @@
       }
     }
   },
-  "dependencies": {}
+  "dependencies": {},
+  "keywords": [
+		"ping",
+		"node-ping",
+    "pinger",
+    "udp"
+	]
 }
