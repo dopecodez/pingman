@@ -4,7 +4,9 @@ Human-friendly node wrapper for ping utility across platforms.
 
 # INSTALLATION
 
-npm install pingman
+```
+$ npm install pingman
+```
 
 ## Highlights
 
