@@ -14,7 +14,7 @@ $ npm install pingman
 - [Available options](#available-options)
 - [Output Model](#output-model)
 - [Types](#types)
-- [Extended options(Platform-specific)](#Extended-options(Platform-specific))
+- [Extended options(Platform-specific)](#Extended-options)
 - [Contributing](#Contributing)
 
 ## Usage
@@ -66,7 +66,7 @@ let response = await ping(TargetIp, {options})
 
 The `options` available are based on the docs available for [Windows](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ping), and the `man` pages for [Mac](https://ss64.com/osx/ping.html) and [Linux](https://linux.die.net/man/8/ping).
 
-There are options which are platform-specific across all three platforms. These are included in the `extendedPingOptions` available and can be found [here](#Extended-options(Platform-specific)). The general options available are abstracted across platforms and should work on all platforms. They can be found in the `pingOptions` object available in types.
+There are options which are platform-specific across all three platforms. These are included in the `extendedPingOptions` available and can be found [here](#Extended-options). The general options available are abstracted across platforms and should work on all platforms. They can be found in the `pingOptions` object available in types.
 
 | option         | Type        | On Windows    | On Unix          |
 | :---           |    :----:   | :---          | :----            |
@@ -109,7 +109,7 @@ There are two further options available: `logToFile` and `logFilePath`. If `logT
 
 Pingman exports some handy TypeScript types and interfaces. See the type definition for all the exported types.
 
-## Extended options(Platform-specific)
+## Extended options
 
 **Note : Using the below options could cause your code to behave unexpectedly in some platforms**
 

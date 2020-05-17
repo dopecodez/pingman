@@ -27,7 +27,8 @@
     "ava": "^3.8.2",
     "typescript": "^3.8.3",
     "@ava/typescript": "^1.1.1",
-    "copyfiles": "^2.2.0"
+    "copyfiles": "^2.2.0",
+    "np": "^6.2.3"
   },
   "files": [
     "dist/source",
@@ -47,13 +48,12 @@
       }
     }
   },
-  "dependencies": {
-    "np": "^6.2.3"
-  },
+  "dependencies": {},
   "keywords": [
     "ping",
     "node-ping",
     "pinger",
-    "udp"
+    "udp",
+    "pingman"
   ]
 }
