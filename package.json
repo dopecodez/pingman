@@ -13,7 +13,8 @@
     "prebuild": "tsc --build --clean",
     "build": "tsc",
     "postbuild": "copyfiles -u 1 test/parser/samples/*.txt dist/test",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "release": "np"
   },
   "author": "Govind S",
   "license": "MIT",
@@ -47,11 +48,13 @@
       }
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "np": "^6.2.3"
+  },
   "keywords": [
-		"ping",
-		"node-ping",
+    "ping",
+    "node-ping",
     "pinger",
     "udp"
-	]
+  ]
 }
