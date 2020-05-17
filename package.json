@@ -12,7 +12,8 @@
     "test": "tsc --noEmit && ava",
     "prebuild": "tsc --build --clean",
     "build": "tsc",
-    "postbuild": "copyfiles -u 1 test/parser/samples/*.txt dist/test"
+    "postbuild": "copyfiles -u 1 test/parser/samples/*.txt dist/test",
+    "prepare": "npm run build"
   },
   "author": "Govind S",
   "license": "ISC",
