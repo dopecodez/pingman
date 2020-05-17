@@ -1,6 +1,6 @@
 import test from 'ava'
 import logger from '../src/log'
-const fs = require('fs');
+// const fs = require('fs');
 
 test('Check if log file is created without logging enabled', t => {
     const log = new logger('log.txt', false);
