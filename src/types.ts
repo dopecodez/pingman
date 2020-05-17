@@ -10,6 +10,7 @@ export interface extendedPingOptions extends pingOptions{
     quiet?: boolean,
     timeBeforeExit?: number,
     verboseOutput?: boolean,
+    doNotFragment?: boolean,
     srcAddr?: string
 }
 
@@ -21,7 +22,6 @@ export interface pingOptions {
     IPV6?: boolean,
     IPV4?: boolean,
     numberOfEchos?: number,
-    doNotFragment?: boolean,
     TTL?: number,
     timeout?: number
 }
