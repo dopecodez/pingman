@@ -5,6 +5,7 @@
         "lib": [
             "es2018"
         ],
+        "types" : [ "node" ],
         "strict": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,
