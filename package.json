@@ -1,7 +1,7 @@
 {
   "name": "pingman",
-  "version": "1.0.2",
-  "description": "A ping wrapper for mode with TypeScript",
+  "version": "1.0.3",
+  "description": "A ping wrapper for node with TypeScript",
   "main": "dist/src",
   "engines": {
     "node": ">=10"
