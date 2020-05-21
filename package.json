@@ -9,7 +9,6 @@
   "scripts": {
     "prepublishOnly": "tsc --build --clean && tsc",
     "test": "tsc --noEmit && ava",
-    "prebuild": "tsc --build --clean",
     "build": "tsc --build --clean && tsc",
     "postbuild": "copyfiles -u 1 test/parser/samples/*.txt dist/test",
     "prepare": "npm run build",
@@ -31,7 +30,7 @@
     "np": "^6.2.3"
   },
   "files": [
-    "dist/source",
+    "dist/src",
     "dist/test"
   ],
   "types": "dist/src/",
