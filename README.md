@@ -1,4 +1,4 @@
-# PINGMAN  [![Build Status](https://travis-ci.org/dopecodez/pingman.svg?branch=master)](https://travis-ci.org/dopecodez/pingman)
+# PINGMAN  [![Build Status](https://travis-ci.org/dopecodez/pingman.svg?branch=master)](https://travis-ci.org/dopecodez/pingman) [![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dopecodez/pingman/issues)
 
 Human-friendly node wrapper for ping utility across platforms.
 
