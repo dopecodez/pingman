@@ -1,4 +1,4 @@
-# PINGMAN  [![Build Status](https://travis-ci.org/dopecodez/pingman.svg?branch=master)](https://travis-ci.org/dopecodez/pingman) [![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dopecodez/pingman/issues) [![Maintainability](https://api.codeclimate.com/v1/badges/18e10003e2c71f0c100b/maintainability)](https://codeclimate.com/github/dopecodez/pingman/maintainability)[![install size](https://packagephobia.now.sh/badge?p=pingman)](https://packagephobia.now.sh/result?p=pingman)
+# PINGMAN  [![Build Status](https://travis-ci.org/dopecodez/pingman.svg?branch=master)](https://travis-ci.org/dopecodez/pingman) [![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dopecodez/pingman/issues) [![Maintainability](https://api.codeclimate.com/v1/badges/18e10003e2c71f0c100b/maintainability)](https://codeclimate.com/github/dopecodez/pingman/maintainability) [![install size](https://packagephobia.now.sh/badge?p=pingman)](https://packagephobia.now.sh/result?p=pingman)
 
 Human-friendly node wrapper for ping utility across platforms.
 
