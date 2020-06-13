@@ -1,6 +1,6 @@
 import test from 'ava'
 import logger from '../src/log'
-// const fs = require('fs');
+import {existsSync} from 'fs'
 
 test('Check if log file is created without logging enabled', t => {
     const log = new logger('log.txt', false);
@@ -8,12 +8,10 @@ test('Check if log file is created without logging enabled', t => {
     t.is(log.enabledLogging, false)
 })
 
-//TO-DO : Find out why this causes travis.yml to fail
-// test('Check if log file is created and can be written to', async t => {
-//     const log = new logger('log.txt', true);
-//     const testData = 'Test'
-//     await log.writeToLogFile(testData);
-//     let exists = fs.existsSync('log.txt');
-//     t.is(exists, true);
-//     fs.unlinkSync('log.txt');
-// });
+test('Check if log file is created and can be written to', async t => {
+    const log = new logger('log.txt', true);
+    const testData = 'Test'
+    await log.writeToLogFile(testData);
+    let exists = existsSync('log.txt');
+    t.is(exists, true);
+});
