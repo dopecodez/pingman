@@ -10,5 +10,7 @@ test('Check if log file is created without logging enabled', t => {
 
 test('Check if log file is created and can be written to', async t => {
     const log = new logger('log.txt', true);
+    const testData = 'Test'
+    await log.writeToLogFile(testData);
     t.is(log.enabledLogging, true)
 });
