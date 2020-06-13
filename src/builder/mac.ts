@@ -48,7 +48,7 @@ const mac = (ip: string, options?: extendedPingOptions): commandBuilder => {
     if (typeof options?.TTL === 'number') {
         args.push('-m', options.TTL.toString()); //change to -t for linux
     }
-    if (typeof options?.doNotFragment === 'number') {
+    if (options.doNotFragment) {
         args.push('-D');
     }
     if (options?.numeric) {
