@@ -34,9 +34,9 @@ const linux = (ip: string, options?: extendedPingOptions): commandBuilder => {
    if (options?.floodPing) {
       if (typeof options?.interval === 'number') {
          args.push('-i', options?.interval.toString())
+         emitWarning(ERROR_MESSAGES.FLOOD_AND_INTERVAL_ARGS, 'argumentWarning');
       } else {
          args.push('-f');
-         emitWarning(ERROR_MESSAGES.FLOOD_AND_INTERVAL_ARGS, 'argumentWarning');
       }
    }
    if (typeof options?.interfaceAddress === 'string') {
