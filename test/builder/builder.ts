@@ -146,6 +146,5 @@ test('Check if builder creates ping6 command for mac systems', t => {
 
 test('Check if builder creates ping6 command for linux systems', t => {
     let command = createBuilder('127.0.0.1', 'linux', { IPV6: true });
-    console.log(command)
     t.deepEqual(command, sampleBuildCommands.LINUX_IPV6_ARGS);
 })
