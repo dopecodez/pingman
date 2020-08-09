@@ -41,14 +41,15 @@ const ping = require('pingman');
 })();
 ```
 
-### Usage with options
+### Usage with options and TypeScript
 
 ```js
-const ping = require('pingman');
+import pingResponse, pingOptions} from 'pingman'
 
 (async () => {
 	try {
-		const response = await ping('www.github.com', {logToFile:true, numberOfEchos: 6, timeout: 2, IPV4: true});
+		const options: pingOptions = {logToFile:true, numberOfEchos: 6, timeout: 2, IPV4: true};
+		const response: pingResponse = await ping('www.github.com', {logToFile:true, numberOfEchos: 6, timeout: 2, IPV4: true});
 		console.log(response);
         if(response.alive){
             //=>if pinged ip is available and responds
