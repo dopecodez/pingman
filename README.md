@@ -44,7 +44,7 @@ const ping = require('pingman');
 ### Usage with options and TypeScript
 
 ```js
-import pingResponse, pingOptions} from 'pingman'
+import ping, {pingResponse, pingOptions} from 'pingman'
 
 (async () => {
 	try {
