@@ -1,4 +1,4 @@
-# PINGMAN  [![Build Status](https://travis-ci.org/dopecodez/pingman.svg?branch=master)](https://travis-ci.org/dopecodez/pingman) [![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dopecodez/pingman/issues) [![Maintainability](https://api.codeclimate.com/v1/badges/18e10003e2c71f0c100b/maintainability)](https://codeclimate.com/github/dopecodez/pingman/maintainability) [![install size](https://packagephobia.now.sh/badge?p=pingman)](https://packagephobia.now.sh/result?p=pingman) [![Test Coverage](https://api.codeclimate.com/v1/badges/18e10003e2c71f0c100b/test_coverage)](https://codeclimate.com/github/dopecodez/pingman/test_coverage)
+# PINGMAN  [![Build Status](https://travis-ci.org/dopecodez/pingman.svg?branch=master)](https://travis-ci.org/dopecodez/pingman) [![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dopecodez/pingman/issues) [![install size](https://packagephobia.now.sh/badge?p=pingman)](https://packagephobia.now.sh/result?p=pingman) [![Test Coverage](https://api.codeclimate.com/v1/badges/18e10003e2c71f0c100b/test_coverage)](https://codeclimate.com/github/dopecodez/pingman/test_coverage)
 
 Human-friendly node wrapper for ping utility across platforms.
 
@@ -30,9 +30,9 @@ const ping = require('pingman');
 	try {
 		const response = await ping('127.0.0.1');
 		console.log(response);
-        if(response.alive){
-            //=>if pinged ip is available and responds
-        }
+        	if(response.alive){
+            	//=>if pinged ip is available and responds
+        	}	
 		//=> '<!doctype html> ...'
 	} catch (error) {
 		console.log(error);
@@ -51,9 +51,9 @@ import ping, {pingResponse, pingOptions} from 'pingman'
 		const options: pingOptions = {logToFile:true, numberOfEchos: 6, timeout: 2, IPV4: true};
 		const response: pingResponse = await ping('www.github.com', {logToFile:true, numberOfEchos: 6, timeout: 2, IPV4: true});
 		console.log(response);
-        if(response.alive){
-            //=>if pinged ip is available and responds
-        }
+        	if(response.alive){
+            	//=>if pinged ip is available and responds
+        	}
 		//=> '<!doctype html> ...'
 	} catch (error) {
 		console.log(error);
