@@ -1,6 +1,6 @@
 {
   "name": "pingman",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A ping wrapper for node with TypeScript",
   "main": "dist/src",
   "engines": {
