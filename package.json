@@ -30,8 +30,7 @@
     "np": "^6.2.3"
   },
   "files": [
-    "dist/src",
-    "dist/test"
+    "dist/src"
   ],
   "types": "dist/src/",
   "ava": {
