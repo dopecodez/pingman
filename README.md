@@ -30,10 +30,9 @@ const ping = require('pingman');
 	try {
 		const response = await ping('127.0.0.1');
 		console.log(response);
-    	if(response.alive){
-        //=>if pinged ip is available and responds
-    	}	
-		//=> '<!doctype html> ...'
+		if(response.alive){
+		//=>if pinged ip is available and responds
+		}	
 	} catch (error) {
 		console.log(error);
 		//=> 'Internal server error ...'
@@ -51,10 +50,9 @@ import ping, {pingResponse, pingOptions} from 'pingman'
 		const options: pingOptions = {logToFile:true, numberOfEchos: 6, timeout: 2, IPV4: true};
 		const response: pingResponse = await ping('www.github.com', {logToFile:true, numberOfEchos: 6, timeout: 2, IPV4: true});
 		console.log(response);
-        if(response.alive){
-        //=>if pinged ip is available and responds
-    	}
-		//=> '<!doctype html> ...'
+		if(response.alive){
+		//=>if pinged ip is available and responds
+		}
 	} catch (error) {
 		console.log(error);
 		//=> 'Internal server error ...'
