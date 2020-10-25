@@ -24,23 +24,23 @@ const sampleBuildCommands = {
     },
     MAC_NO_ARGS: {
         command: '/sbin/ping',
-        arguments: ['127.0.0.1', '-c', '4']
+        arguments: ['-c', '4', '127.0.0.1']
     },
     MAC_GENERAL_ARGS: {
         command: '/sbin/ping',
-        arguments: ['127.0.0.1', '-c', '6', '-d', '-f', '-n', '-t', '10', '-W', '2000']
+        arguments: ['-c', '6', '-d', '-f', '-n', '-t', '10', '-W', '2000', '127.0.0.1']
     },
     MAC_EXTENDED_ARGS: {
         command: '/sbin/ping',
-        arguments: ['127.0.0.1', '-c', '6', '-i', '100', '-I', 'testInterface', '-L', '-m', '3000']
+        arguments: ['-c', '6', '-i', '100', '-I', 'testInterface', '-L', '-m', '3000', '127.0.0.1']
     },
     MAC_EXTENDED_ARGS2: {
         command: '/sbin/ping',
-        arguments: ['127.0.0.1', '-c', '6', '-D', '-n', '-p', 'test', '-q', '-S', 'testAddr']
+        arguments: ['-c', '6', '-D', '-n', '-p', 'test', '-q', '-S', 'testAddr', '127.0.0.1']
     },
     MAC_EXTENDED_ARGS3: {
         command: '/sbin/ping',
-        arguments: ['127.0.0.1', '-c', '6', '-s', '52', '-v']
+        arguments: ['-c', '6', '-s', '52', '-v', '127.0.0.1']
     },
     LINUX_NO_ARGS: {
         command: 'ping',
@@ -60,7 +60,7 @@ const sampleBuildCommands = {
     },
     MAC_IPV6_ARGS: {
         command: '/sbin/ping6',
-        arguments: ['127.0.0.1', '-c', '4']
+        arguments: ['-c', '4', '127.0.0.1']
     },
     LINUX_IPV6_ARGS: {
         command: 'ping6',
