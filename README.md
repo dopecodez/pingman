@@ -138,3 +138,10 @@ Before opening a pull request please make sure your changes follow the
 [contribution guidelines][1].
 
 [1]: https://github.com/dopecodez/pingman/blob/master/CONTRIBUTING.md
+
+## Contributors
+
+The project would not be the way it is without these rockstars.
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
