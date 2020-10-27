@@ -5,7 +5,6 @@ import { ERROR_MESSAGES } from '../messages'
 const windows = (ip: string, options?: extendedPingOptions): commandBuilder => {
     let args: Array<string> = [];
     const windowsRootPath = process.env.SystemRoot + '/system32/ping.exe';
-    args.push(ip);
     //NO Allowing Unsanitized user input into spawn.Checking each param and assigning
     if (!options) {
         return {
@@ -30,6 +29,7 @@ const windows = (ip: string, options?: extendedPingOptions): commandBuilder => {
         }
         args.push(...(checkForIpV4SpecificFields(options)));
         args.push(...(checkForIpV6SpecificFields(options)));
+        args.push(ip);
     }
     return {
         command: windowsRootPath,
