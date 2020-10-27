@@ -143,5 +143,36 @@ Before opening a pull request please make sure your changes follow the
 
 The project would not be the way it is without these rockstars.
 
-<!-- readme: contributors -start -->
+<!-- readme: contributors -start --> 
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/dopecodez">
+            <img src="https://avatars2.githubusercontent.com/u/34269105?v=4" width="100;" alt="dopecodez"/>
+            <br />
+            <sub><b>Govind S</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/lolPants">
+            <img src="https://avatars2.githubusercontent.com/u/2358182?v=4" width="100;" alt="lolPants"/>
+            <br />
+            <sub><b>Jack Baron</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/JesseVermeulen123">
+            <img src="https://avatars3.githubusercontent.com/u/43927190?v=4" width="100;" alt="JesseVermeulen123"/>
+            <br />
+            <sub><b>Jessé Vermeulen</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/sravanth-chebrolu">
+            <img src="https://avatars0.githubusercontent.com/u/54331348?v=4" width="100;" alt="sravanth-chebrolu"/>
+            <br />
+            <sub><b>Sravanth C.</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
