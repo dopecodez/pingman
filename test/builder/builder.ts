@@ -8,19 +8,19 @@ const sampleBuildCommands = {
     },
     WIN_GENERAL_ARGS: {
         command: process.env.SystemRoot + '/system32/ping.exe',
-        arguments: ['127.0.0.1', '-n', '6', '-l', '52', '-i', '2000', '-w', '2000']
+        arguments: ['-n', '6', '-l', '52', '-i', '2000', '-w', '2000', '127.0.0.1']
     },
     WIN_GENERAL_ARGS_NO_PROTOCOL: {
         command: process.env.SystemRoot + '/system32/ping.exe',
-        arguments: ['127.0.0.1', '-n', '6',]
+        arguments: ['-n', '6', '127.0.0.1']
     },
     WIN_IPV4_ARGS: {
         command: process.env.SystemRoot + '/system32/ping.exe',
-        arguments: ['127.0.0.1', '-4', '-f', '-r', '5', '-s', '5000']
+        arguments: ['-4', '-f', '-r', '5', '-s', '5000', '127.0.0.1']
     },
     WIN_IPV6_ARGS: {
         command: process.env.SystemRoot + '/system32/ping.exe',
-        arguments: ['127.0.0.1', '-6', '-S', 'testAddress']
+        arguments: ['-6', '-S', 'testAddress', '127.0.0.1']
     },
     MAC_NO_ARGS: {
         command: '/sbin/ping',
