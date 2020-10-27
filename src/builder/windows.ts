@@ -7,6 +7,7 @@ const windows = (ip: string, options?: extendedPingOptions): commandBuilder => {
     const windowsRootPath = process.env.SystemRoot + '/system32/ping.exe';
     //NO Allowing Unsanitized user input into spawn.Checking each param and assigning
     if (!options) {
+        args.push(ip);
         return {
             command: windowsRootPath,
             arguments: args
