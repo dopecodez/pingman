@@ -164,12 +164,12 @@ The project would not be the way it is without these rockstars.
         <a href="https://github.com/JesseVermeulen123">
             <img src="https://avatars3.githubusercontent.com/u/43927190?v=4" width="100;" alt="JesseVermeulen123"/>
             <br />
-            <sub><b>Jessé Vermeulen</b></sub>
+            <sub><b>JessC) Vermeulen</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/sravanth-chebrolu">
-            <img src="https://avatars0.githubusercontent.com/u/54331348?v=4" width="100;" alt="sravanth-chebrolu"/>
+        <a href="https://github.com/chebro">
+            <img src="https://avatars0.githubusercontent.com/u/54331348?v=4" width="100;" alt="chebro"/>
             <br />
             <sub><b>Sravanth C.</b></sub>
         </a>
