@@ -1,8 +1,6 @@
 # Contributing
 
-We welcome patches and features. There are however a few things that are
-required before your pull request can be merged. Make sure you cut a branch
-from develop and all PRs pointed towards develop.
+We welcome patches and features. There are however a few things that are required before your pull request can be merged. Fork the repo, make your changes and put your PR back to `master`.
 
 # Tests
 

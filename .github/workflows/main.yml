@@ -10,7 +10,7 @@ on:
         - test/*
         - '*.json'
         - package.lock
-        - .github/*
+        - .github/workflows/*
     pull_request:
         paths:
         - '!*.MD'
