@@ -1,3 +1,4 @@
+name: build
 on: 
     push:
         branches:
@@ -8,21 +9,14 @@ on:
         - src/*
         - test/*
         - '*.json'
-        - yarn.lock
+        - package.lock
+        - .github/*
     pull_request:
         paths:
         - '!*.MD'
 
 jobs:
-    contrib-readme-job:
-        runs-on: ubuntu-latest
-        name: A job to automate contrib in readme
-        steps:
-            - name: Contribute List
-              uses: akhilmhdh/contributors-readme-action@v2.0.2
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    test:
+    build:
         name: Node.js ${{ matrix.node-version }}
         runs-on: ubuntu-latest
         strategy:
@@ -40,7 +34,7 @@ jobs:
             - run: npm install
             - run: npm test
     coverage:
-        needs: [ test ]
+        needs: [ build ]
         name: coverage
         runs-on: ubuntu-latest
         steps:
