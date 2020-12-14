@@ -1,19 +1,17 @@
 name: build
 on: 
-    push:
-        branches:
-        - master
-        tags:
-        - '!*' # Do not execute on tags
-        paths:
-        - src/*
-        - test/*
-        - '*.json'
-        - package.lock
-        - .github/workflows/*
-    pull_request:
-        paths:
-        - '!*.MD'
+  push:
+    branches:
+      - master
+    tags:
+    - '!*' # Do not execute on tags
+    paths:
+    - src/*
+    - test/*
+    - '*.json'
+    - package.lock
+    - .github/workflows/*
+  pull_request:
 
 jobs:
     build:
@@ -48,5 +46,5 @@ jobs:
               env:
                 CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
               with:
-                coverageCommand: npm run coverage
+                coverageCommand: npm run test
                 debug: true
