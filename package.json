@@ -8,8 +8,7 @@
   },
   "scripts": {
     "prepublishOnly": "tsc --build --clean && tsc",
-    "test": "tsc --noEmit && ava",
-    "coverage": "nyc ava",
+    "test": "nyc ava",
     "build": "tsc --build --clean && tsc",
     "postbuild": "copyfiles -u 1 test/parser/samples/*.txt dist/test",
     "prepare": "npm run build",
@@ -25,7 +24,7 @@
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
     "@types/node": "^13.13.5",
-    "ava": "^3.13.0",
+    "ava": "^3.15.0",
     "copyfiles": "^2.2.0",
     "np": "^6.2.3",
     "nyc": "^15.1.0",

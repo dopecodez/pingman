@@ -148,3 +148,9 @@ test('Check if builder creates ping6 command for linux systems', t => {
     let command = createBuilder('127.0.0.1', 'linux', { IPV6: true });
     t.deepEqual(command, sampleBuildCommands.LINUX_IPV6_ARGS);
 })
+
+test('Check if builder throws supported error for unsupported platform', t => {
+    t.throws(() => {
+		createBuilder('127.0.0.1', 'unsupported');
+	});
+})
