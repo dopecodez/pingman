@@ -2,7 +2,7 @@ export class pingError extends Error {
     code?: string;
     constructor(message: string, code?: string) {
         super(message);
-        this.name = 'ts-pingError';
+        this.name = 'pingError';
         this.code = code;
     }
 }
@@ -18,12 +18,5 @@ export class supportedError extends pingError {
     constructor(message: string) {
         super(message);
         this.name = 'platformNotSupportedError';
-    }
-}
-
-export class spawnError extends pingError {
-    constructor(message:string){
-        super(message);
-        this.name = 'spawnError';
     }
 }

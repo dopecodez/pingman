@@ -3,3 +3,4 @@ dist
 log.txt
 coverage
 .nyc_output
+test.js

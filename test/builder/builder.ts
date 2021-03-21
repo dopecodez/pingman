@@ -8,7 +8,7 @@ const sampleBuildCommands = {
     },
     WIN_GENERAL_ARGS: {
         command: process.env.SystemRoot + '/system32/ping.exe',
-        arguments: ['-n', '6', '-l', '52', '-i', '2000', '-w', '2000', '127.0.0.1']
+        arguments: ['-a', '-n', '6', '-l', '52', '-i', '2000', '-w', '2000', '127.0.0.1']
     },
     WIN_GENERAL_ARGS_NO_PROTOCOL: {
         command: process.env.SystemRoot + '/system32/ping.exe',
@@ -42,6 +42,10 @@ const sampleBuildCommands = {
         command: '/sbin/ping',
         arguments: ['-c', '6', '-s', '52', '-v', '127.0.0.1']
     },
+    MAC_EXTENDED_ARGS4: {
+        command: '/sbin/ping',
+        arguments: ['-c', '6', '-f', '-i', '100', '-I', 'testInterface', '-L', '-m', '3000', '127.0.0.1']
+    },
     LINUX_NO_ARGS: {
         command: 'ping',
         arguments: ['-c', '4', '127.0.0.1']
@@ -52,11 +56,15 @@ const sampleBuildCommands = {
     },
     LINUX_EXTENDED_ARGS: {
         command: 'ping',
-        arguments: ['-c', '6', '-i', '100', '-I', 'testAddr', '-L', '-t', '1000', '127.0.0.1']
+        arguments: ['-c', '6', '-f', '-i', '100', '-I', 'testAddr', '-L', '-t', '1000', '127.0.0.1']
     },
     LINUX_EXTENDED_ARGS2: {
         command: 'ping',
         arguments: ['-c', '6', '-n', '-p', 'testPattern', '-q', '-s', '52', '-v', '127.0.0.1']
+    },
+    LINUX_EXTENDED_ARGS3: {
+        command: 'ping',
+        arguments: ['-c', '6', '-i', '100', '-I', 'testAddr', '-L', '-t', '1000', '127.0.0.1']
     },
     MAC_IPV6_ARGS: {
         command: '/sbin/ping6',
@@ -74,7 +82,7 @@ test('Check if builder creates command arguments corerectly for windows', t => {
 })
 
 test('Check if builder creates general command arguments corerectly for windows', t => {
-    let command = createBuilder('127.0.0.1', 'win32', { numberOfEchos: 6, timeout: 2, TTL: 2000, bufferSize: 52 });
+    let command = createBuilder('127.0.0.1', 'win32', { numeric: true, numberOfEchos: 6, timeout: 2, TTL: 2000, bufferSize: 52 });
     t.deepEqual(command, sampleBuildCommands.WIN_GENERAL_ARGS);
 })
 
@@ -84,12 +92,12 @@ test('Check if builder creates IPV4 command arguments corerectly for windows', t
 })
 
 test('Check if builder creates general command without explicit protocol metioned for windows', t => {
-    let command = createBuilder('127.0.0.1', 'win32', { numberOfEchos: 6, doNotFragment: true });
+    let command = createBuilder('127.0.0.1', 'win32', { numberOfEchos: 6, srcAddr: 'testAddress', doNotFragment: true });
     t.deepEqual(command, sampleBuildCommands.WIN_GENERAL_ARGS_NO_PROTOCOL);
 })
 
 test('Check if builder creates IPV6 args for windows', t => {
-    let command = createBuilder('127.0.0.1', 'win32', { IPV6: true, srcAddr: 'testAddress' });
+    let command = createBuilder('127.0.0.1', 'win32', { IPV6: true, srcAddr: 'testAddress', recordRouteHops: 5, hopTimestamp: 5000 });
     t.deepEqual(command, sampleBuildCommands.WIN_IPV6_ARGS);
 })
 
@@ -118,6 +126,11 @@ test('Check if builder creates extended command arguments corerectly for mac 3',
     t.deepEqual(command, sampleBuildCommands.MAC_EXTENDED_ARGS3);
 })
 
+test('Check if builder creates extended command arguments corerectly for mac 4', t => {
+    let command = createBuilder('127.0.0.1', 'darwin', { numberOfEchos: 6, floodPing: true, interval: 100, interfaceAddress: 'testInterface', suppressLoopback: true, TTL: 3000 });
+    t.deepEqual(command, sampleBuildCommands.MAC_EXTENDED_ARGS4);
+})
+
 test('Check if builder creates command arguments corerectly for linux', t => {
     let command = createBuilder('127.0.0.1', 'linux');
     t.deepEqual(command, sampleBuildCommands.LINUX_NO_ARGS);
@@ -129,7 +142,7 @@ test('Check if builder creates general command arguments corerectly for linux', 
 })
 
 test('Check if builder creates extended command arguments corerectly for linux', t => {
-    let command = createBuilder('127.0.0.1', 'linux', { numberOfEchos: 6, interval: 100, interfaceAddress: 'testAddr', suppressLoopback: true, TTL: 1000});
+    let command = createBuilder('127.0.0.1', 'linux', { numberOfEchos: 6, floodPing: true, interval: 100, interfaceAddress: 'testAddr', suppressLoopback: true, TTL: 1000});
     t.deepEqual(command, sampleBuildCommands.LINUX_EXTENDED_ARGS);
 })
 
@@ -138,6 +151,10 @@ test('Check if builder creates extended command arguments corerectly for linux 2
     t.deepEqual(command, sampleBuildCommands.LINUX_EXTENDED_ARGS2);
 })
 
+test('Check if builder creates extended command arguments corerectly for linux 3', t => {
+    let command = createBuilder('127.0.0.1', 'linux', { numberOfEchos: 6, interval: 100, interfaceAddress: 'testAddr', suppressLoopback: true, TTL: 1000});
+    t.deepEqual(command, sampleBuildCommands.LINUX_EXTENDED_ARGS3);
+})
 
 test('Check if builder creates ping6 command for mac systems', t => {
     let command = createBuilder('127.0.0.1', 'darwin', { IPV6: true });
