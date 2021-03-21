@@ -55,13 +55,13 @@ function checkForIpV4SpecificFields(options: extendedPingOptions): Array<string>
         }
     } else {
         if (options.doNotFragment) {
-            optionsUsed.concat(',', options.doNotFragment.toString())
+            optionsUsed = optionsUsed.concat(',', options.doNotFragment.toString())
         }
         if (options.recordRouteHops) {
-            optionsUsed.concat(',', options.recordRouteHops.toString())
+            optionsUsed = optionsUsed.concat(',', options.recordRouteHops.toString())
         }
         if (options.hopTimestamp) {
-            optionsUsed.concat(',', options.hopTimestamp.toString())
+            optionsUsed = optionsUsed.concat(',', options.hopTimestamp.toString())
         }
         if (optionsUsed.length > 0) {
             emitWarning(ERROR_MESSAGES.ENABLE_IPV4_EXPLICIT.replace('commands', optionsUsed), 'IPV4OnlyWarning');
@@ -81,7 +81,7 @@ function checkForIpV6SpecificFields(options: extendedPingOptions): Array<string>
         }
     } else {
         if (typeof options.srcAddr === 'string') {
-            optionsUsed.concat(',', options.srcAddr)
+            optionsUsed = optionsUsed.concat(',', options.srcAddr)
         }
         if (optionsUsed.length > 0) {
             emitWarning(ERROR_MESSAGES.ENABLE_IPV6_EXPLICIT.replace('commands', optionsUsed), 'IPV6OnlyWarning');

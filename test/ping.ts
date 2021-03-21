@@ -1,12 +1,12 @@
 import test from 'ava'
 import execute from '../src/ping'
 
-test('Spawn throws error on incorrect command', async t => {
+test('Spawn throws spawnError if command is wrong', async t => {
     let errored = {
         command: 'asasas',
-        arguments: []
+        arguments: ['uu']
     }
-    return execute(errored).catch(error => {
-        t.truthy(error)
-    });
+    await t.throwsAsync(async () => {
+		await execute(errored);
+	});
 })
