@@ -178,7 +178,7 @@ The project would not be the way it is without these rockstars.
         <a href="https://github.com/foxxyz">
             <img src="https://avatars.githubusercontent.com/u/2602605?v=4" width="100;" alt="foxxyz"/>
             <br />
-            <sub><b>foxxyz</b></sub>
+            <sub><b>Foxxyz</b></sub>
         </a>
     </td></tr>
 </table>
