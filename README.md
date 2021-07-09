@@ -173,6 +173,13 @@ The project would not be the way it is without these rockstars.
             <br />
             <sub><b>Sravanth C.</b></sub>
         </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/foxxyz">
+            <img src="https://avatars.githubusercontent.com/u/2602605?v=4" width="100;" alt="foxxyz"/>
+            <br />
+            <sub><b>foxxyz</b></sub>
+        </a>
     </td></tr>
 </table>
 <!-- readme: contributors -end -->
