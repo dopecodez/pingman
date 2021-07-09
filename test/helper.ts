@@ -28,6 +28,16 @@ test('check for validateIp website name', t => {
 	t.is(response, true);
 });
 
+test('check if validateIp works on bare domains', t => {
+	let response = validateIp('rrr.com')
+	t.is(response, true);
+});
+
+test('check if validateIp works on short subdomains', t => {
+	let response = validateIp('i.test.example.net')
+	t.is(response, true);
+});
+
 test('check if invalid platform throws error', t => {
 	let response = isPlatformSupported('Unsupported')
 	t.is(response, false);
