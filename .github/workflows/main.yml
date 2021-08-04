@@ -34,11 +34,11 @@ jobs:
     coverage:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        if: ${{env.CC_TEST_REPORTER_ID != null}}
         needs: [ build ]
         name: coverage
         runs-on: ubuntu-latest
         steps:
+            - if: env.CC_TEST_REPORTER_ID != null
             - uses: actions/checkout@master
             - uses: actions/setup-node@master
               with:
