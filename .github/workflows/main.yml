@@ -38,11 +38,11 @@ jobs:
         name: coverage
         runs-on: ubuntu-latest
         steps:
-            - if: env.CC_TEST_REPORTER_ID != null
             - uses: actions/checkout@master
             - uses: actions/setup-node@master
               with:
                 node-version: '12'
+            - if: env.CC_TEST_REPORTER_ID != null
             - run: npm install
             - run: npm run test
             - uses: paambaati/codeclimate-action@v2.7.5
