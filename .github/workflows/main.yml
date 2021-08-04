@@ -32,17 +32,17 @@ jobs:
             - run: npm install
             - run: npm test
     coverage:
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         needs: [ build ]
         name: coverage
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: env.CC_TEST_REPORTER_ID != null
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
             - uses: actions/setup-node@master
               with:
                 node-version: '12'
-            - if: env.CC_TEST_REPORTER_ID != null
             - run: npm install
             - run: npm run test
             - uses: paambaati/codeclimate-action@v2.7.5
