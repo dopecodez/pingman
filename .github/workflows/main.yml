@@ -13,9 +13,6 @@ on:
     - .github/workflows/*
   pull_request:
 
-env:
-  CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-
 jobs:
     build:
         name: Node.js ${{ matrix.node-version }}
@@ -35,7 +32,9 @@ jobs:
             - run: npm install
             - run: npm test
     coverage:
-        if: env.CC_TEST_REPORTER_ID != null
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        if: ${{env.CC_TEST_REPORTER_ID != null}}
         needs: [ build ]
         name: coverage
         runs-on: ubuntu-latest
