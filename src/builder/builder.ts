@@ -7,7 +7,7 @@ import { commandBuilder, extendedPingOptions } from '../types'
 import { ERROR_MESSAGES } from '../messages'
 
 //Create instance of builder depending on platform
-function createBuilder(ip: string, platform: string, options?: extendedPingOptions): commandBuilder {
+function builderFactory(ip: string, platform: string, options?: extendedPingOptions): commandBuilder {
     let builder: commandBuilder;
     validateIp(ip);
     if (!isPlatformSupported(platform)) {
@@ -23,5 +23,5 @@ function createBuilder(ip: string, platform: string, options?: extendedPingOptio
     return builder;
 }
 
-export default createBuilder;
+export default builderFactory;
 

@@ -1,5 +1,5 @@
 import { extendedPingOptions, commandBuilder, pingResponse } from './types'
-import createBuilder from './builder/builder'
+import builderFactory from './builder/builder'
 import * as os from 'os'
 import Logger from './log'
 import execute from './ping'
@@ -12,7 +12,7 @@ const ping = async (ipAddress: string, pingOptions?: extendedPingOptions) => {
     logger = new Logger(pingOptions?.logFilePath || 'log.txt', pingOptions?.logToFile || false);
     try {
         const platform = os.platform();
-        const builtCommand: commandBuilder = createBuilder(ipAddress, platform, pingOptions);
+        const builtCommand: commandBuilder = builderFactory(ipAddress, platform, pingOptions);
         logger.writeToLogFile(JSON.stringify(builtCommand));
         const pingOutput : string[] = await execute(builtCommand);
         const parsedOutput: pingResponse = parserFactory(platform, pingOutput, pingOptions);
