@@ -101,7 +101,7 @@ class windows implements parser {
         }
     }
 
-    //method to process IPV Specific Body
+    //method to process IPV6 Specific Body
     processIPV6Body(dataFields: string[]): void {
         let expectDataFieldInReplyLine = 1;
         if (dataFields.length >= expectDataFieldInReplyLine) {
