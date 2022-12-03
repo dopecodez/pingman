@@ -15,7 +15,8 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "declaration": true
+        "declaration": true,
+        "useUnknownInCatchVariables": false
     },
     "include": [
         "src",
