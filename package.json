@@ -22,9 +22,9 @@
     "url": "git://github.com/dopecodez/pingman.git"
   },
   "devDependencies": {
-    "@ava/typescript": "^1.1.1",
+    "@ava/typescript": "^3.0.1",
     "@types/node": "^18.11.10",
-    "ava": "^3.15.0",
+    "ava": "^5.1.0",
     "copyfiles": "^2.2.0",
     "np": "^7.6.2",
     "nyc": "^15.1.0",
@@ -44,7 +44,8 @@
     "typescript": {
       "rewritePaths": {
         "test/": "dist/test/"
-      }
+      },
+      "compile": false
     }
   },
   "keywords": [
