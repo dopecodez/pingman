@@ -7,7 +7,7 @@ function clonePingResponse(obj: pingResponse): pingResponse {
     alive: obj.alive,
     output: obj.output,
     time: obj.time,
-    times: obj.times ? [...obj.times] : [],
+    times: obj.times?.length ? [...obj.times] : [],
     min: obj.min,
     max: obj.max,
     avg: obj.avg,
