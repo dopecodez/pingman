@@ -7,17 +7,8 @@ coverage:
   range: "70...100"
 
 fixes:
-  - "dist/src/::src/"     # Map dist/src/ to src/
-  - "dist/test/::test/"   # Map dist/test/ to test/
-  - ".js::.ts"            # Map .js extensions to .ts extensions
-
-parsers:
-  gcov:
-    branch_detection:
-      conditional: yes
-      loop: yes
-      method: no
-      macro: no
+  - "dist/src/::src/"           # Map dist/src/ to src/
+  - "dist/test/::test/"         # Map dist/test/ to test/
 
 comment:
   layout: "reach,diff,flags,files,footer"

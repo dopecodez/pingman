@@ -16,6 +16,7 @@
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "declaration": true,
+        "sourceMap": true,
         "useUnknownInCatchVariables": false
     },
     "include": [
