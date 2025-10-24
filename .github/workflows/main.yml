@@ -25,8 +25,8 @@ jobs:
                     - 18
                     - 20
         steps:
-            - uses: actions/checkout@v3.2.0
-            - uses: actions/setup-node@v3.5.1
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v6
               with:
                 node-version: ${{ matrix.node-version }}
             - run: npm install
@@ -36,16 +36,12 @@ jobs:
         name: coverage
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@master
-            - uses: actions/setup-node@master
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v6
               with:
                 node-version: '18'
             - run: npm install
             - run: npm run test
-            - uses: paambaati/codeclimate-action@v3.2.0
-              env:
-                CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-              if: env.CC_TEST_REPORTER_ID != null
+            - uses: codecov/codecov-action@v5
               with:
-                coverageCommand: npm run test
-                debug: true
+                token: ${{ secrets.CODECOV_TOKEN }}
