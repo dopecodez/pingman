@@ -1,95 +1,72 @@
 {
-    "windows_ipv4": {
-        "host": "www.some-domain.com",
-        "numericHost": "127.0.0.1",
-        "alive": true,
-        "output": "Pinging www.some-domain.com [127.0.0.1] with 32 bytes of\nReply from 127.0.0.1: bytes=32 time=564ms TTL=237\nReply from 127.0.0.1: bytes=32 time=555ms TTL=237\nReply from 127.0.0.1: bytes=32 time=554ms TTL=237\nReply from 127.0.0.1: bytes=32 time=548ms TTL=237\n\nPing statistics for 127.0.0.1:\n   Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)\nApproximate round trip times in milli-seconds:\n   Minimum = 548ms, Maximum = 564ms, Average = 555ms\n",
-        "time": 564,
-        "times": [
-            564,
-            555,
-            554,
-            548
-        ],
-        "min": "548.000",
-        "max": "564.000",
-        "avg": "555.000",
-        "bufferSize": 32,
-        "stddev": "5.717",
-        "packetLoss": "0"
-    },
-    "macos_ipv4": {
-        "host": "google.com",
-        "numericHost": "172.217.24.46",
-        "alive": true,
-        "output": "PING google.com (172.217.24.46): 56 data bytes\n64 bytes from 172.217.24.46: icmp_seq=0 ttl=54 time=5.371 ms\n64 bytes from 172.217.24.46: icmp_seq=1 ttl=54 time=4.269 ms\n64 bytes from 172.217.24.46: icmp_seq=2 ttl=54 time=4.970 ms\n64 bytes from 172.217.24.46: icmp_seq=3 ttl=54 time=5.228 ms\n\n--- google.com ping statistics ---\n4 packets transmitted, 4 packets received, 0.0% packet loss\nround-trip min/avg/max/stddev = 4.269/4.960/5.371/0.424 ms\n",
-        "time": 5.371,
-        "times": [
-            5.371,
-            4.269,
-            4.97,
-            5.228
-        ],
-        "min": "4.269",
-        "max": "5.371",
-        "avg": "4.960",
-        "bufferSize": 32,
-        "stddev": "0.424",
-        "packetLoss": "0.0"
-    },
-    "linux_ipv4": {
-        "host": "localhost",
-        "numericHost": "127.0.0.1",
-        "alive": true,
-        "output": "PING localhost (127.0.0.1) 56(84) bytes of data.\n64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.022 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.027 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.029 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=4 ttl=64 time=0.030 ms\n\n--- localhost ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 2999ms\nrtt min/avg/max/mdev = 0.022/0.027/0.030/0.003 ms\n",
-        "time": 0.022,
-        "times": [
-            0.022,
-            0.027,
-            0.029,
-            0.03
-        ],
-        "min": "0.022",
-        "max": "0.030",
-        "avg": "0.027",
-        "bufferSize": 32,
-        "stddev": "0.003",
-        "packetLoss": "0"
-    },
-    "linux_ipv6": {
-        "host": "2606:4700:4700::1111",
-        "numericHost": "2606:4700:4700::1111",
-        "alive": true,
-        "output": "PING 2606:4700:4700::1111(2606:4700:4700::1111) 56 data bytes\n64 bytes from 2606:4700:4700::1111: icmp_seq=1 ttl=57 time=0.672 ms\n64 bytes from 2606:4700:4700::1111: icmp_seq=2 ttl=57 time=1.00 ms\n\n--- 2606:4700:4700::1111 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1000ms\nrtt min/avg/max/mdev = 0.672/0.840/1.009/0.170 ms\n",
-        "time": 0.672,
-        "times": [
-            0.672,
-            1.00
-        ],
-        "min": "0.672",
-        "max": "1.009",
-        "avg": "0.840",
-        "bufferSize": 32,
-        "stddev": "0.170",
-        "packetLoss": "0"
-    },
-    "windows_ipv6": {
-        "host": "fe80::2940:90ec:a964:4b42%7",
-        "numericHost": "fe80::2940:90ec:a964:4b42%7",
-        "alive": true,
-        "output": "Pinging fe80::2940:90ec:a964:4b42%7 with 32 bytes of data:\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\n\nPing statistics for fe80::2940:90ec:a964:4b42%7:\n    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),\nApproximate round trip times in milli-seconds:\n    Minimum = 0ms, Maximum = 0ms, Average = 0ms\n",
-        "time": 1,
-        "times": [
-            1,
-            1,
-            1,
-            1
-        ],
-        "min": "0.000",
-        "max": "0.000",
-        "avg": "0.000",
-        "bufferSize": 32,
-        "stddev": "5.717",
-        "packetLoss": "0"
-    }
+  "windows_ipv4": {
+    "host": "www.some-domain.com",
+    "numericHost": "127.0.0.1",
+    "alive": true,
+    "output": "Pinging www.some-domain.com [127.0.0.1] with 32 bytes of\nReply from 127.0.0.1: bytes=32 time=564ms TTL=237\nReply from 127.0.0.1: bytes=32 time=555ms TTL=237\nReply from 127.0.0.1: bytes=32 time=554ms TTL=237\nReply from 127.0.0.1: bytes=32 time=548ms TTL=237\n\nPing statistics for 127.0.0.1:\n   Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)\nApproximate round trip times in milli-seconds:\n   Minimum = 548ms, Maximum = 564ms, Average = 555ms\n",
+    "time": 564,
+    "times": [564, 555, 554, 548],
+    "min": "548.000",
+    "max": "564.000",
+    "avg": "555.000",
+    "bufferSize": 32,
+    "stddev": "5.717",
+    "packetLoss": "0"
+  },
+  "macos_ipv4": {
+    "host": "google.com",
+    "numericHost": "172.217.24.46",
+    "alive": true,
+    "output": "PING google.com (172.217.24.46): 56 data bytes\n64 bytes from 172.217.24.46: icmp_seq=0 ttl=54 time=5.371 ms\n64 bytes from 172.217.24.46: icmp_seq=1 ttl=54 time=4.269 ms\n64 bytes from 172.217.24.46: icmp_seq=2 ttl=54 time=4.970 ms\n64 bytes from 172.217.24.46: icmp_seq=3 ttl=54 time=5.228 ms\n\n--- google.com ping statistics ---\n4 packets transmitted, 4 packets received, 0.0% packet loss\nround-trip min/avg/max/stddev = 4.269/4.960/5.371/0.424 ms\n",
+    "time": 5.371,
+    "times": [5.371, 4.269, 4.97, 5.228],
+    "min": "4.269",
+    "max": "5.371",
+    "avg": "4.960",
+    "bufferSize": null,
+    "stddev": "0.424",
+    "packetLoss": "0.0"
+  },
+  "linux_ipv4": {
+    "host": "localhost",
+    "numericHost": "127.0.0.1",
+    "alive": true,
+    "output": "PING localhost (127.0.0.1) 56(84) bytes of data.\n64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.022 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.027 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.029 ms\n64 bytes from localhost (127.0.0.1): icmp_seq=4 ttl=64 time=0.030 ms\n\n--- localhost ping statistics ---\n4 packets transmitted, 4 received, 0% packet loss, time 2999ms\nrtt min/avg/max/mdev = 0.022/0.027/0.030/0.003 ms\n",
+    "time": 0.022,
+    "times": [0.022, 0.027, 0.029, 0.03],
+    "min": "0.022",
+    "max": "0.030",
+    "avg": "0.027",
+    "bufferSize": null,
+    "stddev": "0.003",
+    "packetLoss": "0"
+  },
+  "linux_ipv6": {
+    "host": "2606:4700:4700::1111",
+    "numericHost": "2606:4700:4700::1111",
+    "alive": true,
+    "output": "PING 2606:4700:4700::1111(2606:4700:4700::1111) 56 data bytes\n64 bytes from 2606:4700:4700::1111: icmp_seq=1 ttl=57 time=0.672 ms\n64 bytes from 2606:4700:4700::1111: icmp_seq=2 ttl=57 time=1.00 ms\n\n--- 2606:4700:4700::1111 ping statistics ---\n2 packets transmitted, 2 received, 0% packet loss, time 1000ms\nrtt min/avg/max/mdev = 0.672/0.840/1.009/0.170 ms\n",
+    "time": 0.672,
+    "times": [0.672, 1.0],
+    "min": "0.672",
+    "max": "1.009",
+    "avg": "0.840",
+    "bufferSize": null,
+    "stddev": "0.170",
+    "packetLoss": "0"
+  },
+  "windows_ipv6": {
+    "host": "fe80::2940:90ec:a964:4b42%7",
+    "numericHost": "fe80::2940:90ec:a964:4b42%7",
+    "alive": true,
+    "output": "Pinging fe80::2940:90ec:a964:4b42%7 with 32 bytes of data:\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\nReply from fe80::2940:90ec:a964:4b42%7: time<1ms\n\nPing statistics for fe80::2940:90ec:a964:4b42%7:\n    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),\nApproximate round trip times in milli-seconds:\n    Minimum = 0ms, Maximum = 0ms, Average = 0ms\n",
+    "time": 1,
+    "times": [1, 1, 1, 1],
+    "min": "0.000",
+    "max": "0.000",
+    "avg": "0.000",
+    "bufferSize": null,
+    "stddev": "0.000",
+    "packetLoss": "0"
+  }
 }

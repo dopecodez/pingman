@@ -6,21 +6,23 @@ import linux from './linux'
 import { extendedPingOptions, pingResponse } from '../types'
 import { ERROR_MESSAGES } from '../messages'
 import parser from "./parser.interface";
+import clonePingResponse from './clonePingResponse'
 
 //create instance of parser based on operating system
 function parserFactory(platform: string, output?: string[], options?: extendedPingOptions): pingResponse {
     let parser: parser;
     let isWindows: boolean = false;
+    const baseReponse = clonePingResponse(defaultResponse)
     if (!isPlatformSupported(platform)) {
         throw new supportedError(ERROR_MESSAGES.PLATFORM_NOT_SUPPORTED.replace('platform', platform));
     }
     if (platform === 'win32') {
-        parser = new windows(defaultResponse, options);
+        parser = new windows(baseReponse, options);
         isWindows = true;
     } else if (platform === 'darwin') {
-        parser = new mac(defaultResponse, options);
+        parser = new mac(baseReponse, options);
     } else {
-        parser = new linux(defaultResponse, options);
+        parser = new linux(baseReponse, options);
     }
     let result = parseOutput(parser, isWindows, output);
     return result;
