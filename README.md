@@ -1,4 +1,4 @@
-# PINGMAN [![build](https://github.com/dopecodez/pingman/workflows/build/badge.svg)](https://github.com/dopecodez/pingman/actions) [![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dopecodez/pingman/issues) [![npm version](https://badge.fury.io/js/pingman.svg)](https://badge.fury.io/js/pingman) [![Test Coverage](https://api.codeclimate.com/v1/badges/18e10003e2c71f0c100b/test_coverage)](https://codeclimate.com/github/dopecodez/pingman/test_coverage)
+# PINGMAN [![build](https://github.com/dopecodez/pingman/workflows/build/badge.svg)](https://github.com/dopecodez/pingman/actions) [![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dopecodez/pingman/issues) [![npm version](https://badge.fury.io/js/pingman.svg)](https://badge.fury.io/js/pingman) [![Test Coverage](https://codecov.io/github/dopecodez/pingman/graph/badge.svg?token=KRY7AENTQE)](https://codecov.io/github/dopecodez/pingman)
 
 Human-friendly node wrapper for ping utility across platforms.
 
@@ -143,7 +143,7 @@ Before opening a pull request please make sure your changes follow the
 
 The project would not be the way it is without these rockstars.
 
-<!-- readme: contributors -start --> 
+<!-- readme: contributors -start -->
 <table>
 <tr>
     <td align="center">
