@@ -6,6 +6,9 @@ on:
 jobs:
     contrib-readme-job:
         runs-on: ubuntu-latest
+        permissions:
+          contents: write
+          pull-requests: write
         name: A job to automate contrib in readme
         steps:
             - name: Contribute List
