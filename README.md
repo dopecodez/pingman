@@ -145,48 +145,60 @@ The project would not be the way it is without these rockstars.
 
 <!-- readme: contributors -start -->
 <table>
-<tr>
-    <td align="center">
-        <a href="https://github.com/dopecodez">
-            <img src="https://avatars.githubusercontent.com/u/34269105?v=4" width="100;" alt="dopecodez"/>
-            <br />
-            <sub><b>Govind S</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Greeshmareji">
-            <img src="https://avatars.githubusercontent.com/u/57181018?v=4" width="100;" alt="Greeshmareji"/>
-            <br />
-            <sub><b>Greeshma R</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/lolPants">
-            <img src="https://avatars.githubusercontent.com/u/2358182?v=4" width="100;" alt="lolPants"/>
-            <br />
-            <sub><b>Jack Baron</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/JesseVermeulen123">
-            <img src="https://avatars.githubusercontent.com/u/43927190?v=4" width="100;" alt="JesseVermeulen123"/>
-            <br />
-            <sub><b>JessC) Vermeulen</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/chebro">
-            <img src="https://avatars.githubusercontent.com/u/54331348?v=4" width="100;" alt="chebro"/>
-            <br />
-            <sub><b>Sravanth C.</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/foxxyz">
-            <img src="https://avatars.githubusercontent.com/u/2602605?v=4" width="100;" alt="foxxyz"/>
-            <br />
-            <sub><b>Foxxyz</b></sub>
-        </a>
-    </td></tr>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/dopecodez">
+                    <img src="https://avatars.githubusercontent.com/u/34269105?v=4" width="100;" alt="dopecodez"/>
+                    <br />
+                    <sub><b>Govind S</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Greeshmareji">
+                    <img src="https://avatars.githubusercontent.com/u/57181018?v=4" width="100;" alt="Greeshmareji"/>
+                    <br />
+                    <sub><b>Greeshma R</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/luludotdev">
+                    <img src="https://avatars.githubusercontent.com/u/2358182?v=4" width="100;" alt="luludotdev"/>
+                    <br />
+                    <sub><b>Lulu</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/JesseVermeulen123">
+                    <img src="https://avatars.githubusercontent.com/u/43927190?v=4" width="100;" alt="JesseVermeulen123"/>
+                    <br />
+                    <sub><b>JessC) Vermeulen</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/Sahilhawal">
+                    <img src="https://avatars.githubusercontent.com/u/50511333?v=4" width="100;" alt="Sahilhawal"/>
+                    <br />
+                    <sub><b>Sahil Hawal</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/chebro">
+                    <img src="https://avatars.githubusercontent.com/u/54331348?v=4" width="100;" alt="chebro"/>
+                    <br />
+                    <sub><b>Sravanth C.</b></sub>
+                </a>
+            </td>
+		</tr>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/foxxyz">
+                    <img src="https://avatars.githubusercontent.com/u/2602605?v=4" width="100;" alt="foxxyz"/>
+                    <br />
+                    <sub><b>Foxxyz</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
 </table>
 <!-- readme: contributors -end -->
