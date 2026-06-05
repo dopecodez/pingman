@@ -38,6 +38,12 @@ test('check if validateIp works on short subdomains', t => {
 	t.is(response, true);
 });
 
+test('check if validateIP throws error on domain with trailing characters', t => {
+	t.throws(() => {
+		validateIp('a.co; rm -rf /')
+	});
+});
+
 test('check if invalid platform throws error', t => {
 	let response = isPlatformSupported('Unsupported')
 	t.is(response, false);
