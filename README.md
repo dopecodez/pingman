@@ -155,6 +155,13 @@ The project would not be the way it is without these rockstars.
                 </a>
             </td>
             <td align="center">
+                <a href="https://github.com/lissy93">
+                    <img src="https://avatars.githubusercontent.com/u/1862727?v=4" width="100;" alt="lissy93"/>
+                    <br />
+                    <sub><b>Alicia Sykes</b></sub>
+                </a>
+            </td>
+            <td align="center">
                 <a href="https://github.com/Greeshmareji">
                     <img src="https://avatars.githubusercontent.com/u/57181018?v=4" width="100;" alt="Greeshmareji"/>
                     <br />
@@ -182,6 +189,8 @@ The project would not be the way it is without these rockstars.
                     <sub><b>Sahil Hawal</b></sub>
                 </a>
             </td>
+		</tr>
+		<tr>
             <td align="center">
                 <a href="https://github.com/chebro">
                     <img src="https://avatars.githubusercontent.com/u/54331348?v=4" width="100;" alt="chebro"/>
@@ -189,8 +198,6 @@ The project would not be the way it is without these rockstars.
                     <sub><b>Sravanth C.</b></sub>
                 </a>
             </td>
-		</tr>
-		<tr>
             <td align="center">
                 <a href="https://github.com/foxxyz">
                     <img src="https://avatars.githubusercontent.com/u/2602605?v=4" width="100;" alt="foxxyz"/>
